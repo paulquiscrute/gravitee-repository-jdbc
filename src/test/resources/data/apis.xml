@@ -1,0 +1,21 @@
+<!DOCTYPE dataset SYSTEM "dataset.dtd">
+<dataset>
+	<table name="API">
+		<column>name</column>
+		<column>description</column>
+		<column>version</column>
+		<column>privateApi</column>
+		<row>
+			<value>teams</value>
+			<value>Manage teams</value>
+			<value>1</value>
+			<value>true</value>
+		</row>
+		<row>
+			<value>users</value>
+			<value>Manage users</value>
+			<value>1</value>
+			<value>true</value>
+		</row>
+	</table>
+</dataset>

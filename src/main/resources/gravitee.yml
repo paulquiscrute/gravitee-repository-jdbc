@@ -1,0 +1,8 @@
+repository:
+  jpa:
+    hibernateDialect: org.hibernate.dialect.PostgreSQL9Dialect
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost/gravitee
+    hbm2ddlAuto: create
+    username: gravitee
+    password: gravitee

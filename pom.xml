@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2015 The Gravitee team (http://gravitee.io)
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>io.gravitee</groupId>
+		<artifactId>gravitee-parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<groupId>io.gravitee.repositories</groupId>
+	<artifactId>gravitee-repository-jpa</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>Gravitee IO - API Management - Repository JPA</name>
+
+	<properties>
+		<dbunit.version>2.5.0</dbunit.version>
+		<gravitee-repository.version>1.0.0-SNAPSHOT</gravitee-repository.version>
+		<hibernate.version>4.3.8.Final</hibernate.version>
+		<h2.version>1.4.185</h2.version>
+		<hsqldb.version>2.3.2</hsqldb.version>
+		<javax.inject.version>1</javax.inject.version>
+		<logback.version>1.1.2</logback.version>
+		<powermock.version>1.6.2</powermock.version>
+		<slf4j.version>1.7.12</slf4j.version>
+		<snakeyaml.version>1.15</snakeyaml.version>
+		<spring.data.jpa.version>1.8.2.RELEASE</spring.data.jpa.version>
+		<spring.version>4.2.0.RELEASE</spring.version>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>${javax.inject.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.yaml</groupId>
+			<artifactId>snakeyaml</artifactId>
+			<version>${snakeyaml.version}</version>
+		</dependency>
+
+		<!-- Gravitee dependencies -->
+
+		<dependency>
+			<groupId>io.gravitee.repositories</groupId>
+			<artifactId>gravitee-repository</artifactId>
+			<version>${gravitee-repository.version}</version>
+		</dependency>
+
+		<!-- Spring dependencies -->
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>${spring.data.jpa.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- Logging -->
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+
+		<!-- Test dependencies -->
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-module-junit4</artifactId>
+			<version>${powermock.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-api-mockito</artifactId>
+			<version>${powermock.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.dbunit</groupId>
+			<artifactId>dbunit</artifactId>
+			<version>${dbunit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>${hsqldb.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>
