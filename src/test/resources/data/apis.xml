@@ -1,21 +1,90 @@
 <!DOCTYPE dataset SYSTEM "dataset.dtd">
 <dataset>
+	<table name="APPLICATION">
+		<column>name</column>
+		<row>
+			<value>Gravitee.IO</value>
+		</row>
+	</table>
+	<table name="POLICY">
+		<column>name</column>
+		<row>
+			<value>cors</value>
+		</row>
+		<row>
+			<value>apiKey</value>
+		</row>
+	</table>
 	<table name="API">
 		<column>name</column>
 		<column>description</column>
 		<column>version</column>
 		<column>privateApi</column>
+		<column>owner</column>
+		<column>ownerType</column>
+		<column>creator</column>
 		<row>
 			<value>teams</value>
 			<value>Manage teams</value>
 			<value>1</value>
 			<value>true</value>
+			<value>Gravitee</value>
+			<value>TEAM</value>
+			<value>admin</value>
 		</row>
 		<row>
 			<value>users</value>
 			<value>Manage users</value>
 			<value>1</value>
+			<value>false</value>
+			<value>Gravitee</value>
+			<value>TEAM</value>
+			<value>admin</value>
+		</row>
+		<row>
+			<value>products</value>
+			<value>Manage products</value>
+			<value>1</value>
 			<value>true</value>
+			<value>User</value>
+			<value>USER</value>
+			<value>admin</value>
+		</row>
+		<row>
+			<value>stores</value>
+			<value>Manage stores</value>
+			<value>1</value>
+			<value>false</value>
+			<value>User</value>
+			<value>USER</value>
+			<value>user</value>
+		</row>
+	</table>
+	<table name="POLICY_CONFIGURATION">
+		<column>policy</column>
+		<column>api</column>
+		<column>configuration</column>
+		<row>
+			<value>cors</value>
+			<value>teams</value>
+			<value>{plugins: 'jar1.jar; jar2.jar'}</value>
+		</row>
+		<row>
+			<value>apiKey</value>
+			<value>teams</value>
+			<value>{properties: 'key;expireOn;revoke;createdAt'}</value>
+		</row>
+	</table>
+	<table name="API_APPLICATION">
+		<column>application</column>
+		<column>api</column>
+		<row>
+			<value>Gravitee.IO</value>
+			<value>teams</value>
+		</row>
+		<row>
+			<value>Gravitee.IO</value>
+			<value>stores</value>
 		</row>
 	</table>
 </dataset>

@@ -18,9 +18,14 @@ package io.gravitee.repository.jpa.model;
 import java.net.URI;
 import java.util.Date;
 import java.util.Objects;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import io.gravitee.repository.model.LifecycleState;
@@ -36,9 +41,9 @@ public class ApiJpa {
     @Id
     private String name;
 
-    private String description;
-
     private String version;
+
+    private String description;
 
     private URI publicURI;
     
@@ -47,7 +52,8 @@ public class ApiJpa {
     private Date createdAt;
     
     private Date updatedAt;
-    
+
+    @Enumerated(EnumType.STRING)
     private OwnerType ownerType;
     
     private String owner;
@@ -57,6 +63,12 @@ public class ApiJpa {
     private boolean privateApi;
 
     private LifecycleState lifecycleState = LifecycleState.STOPPED;
+
+    @OneToMany(mappedBy="api", cascade = CascadeType.ALL)
+    private Set<PolicyConfigurationJpa> policies;
+
+    @OneToMany(mappedBy="api", cascade = CascadeType.ALL)
+    private Set<ApiApplicationJpa> applications;
 
     public Date getCreatedAt() {
         return createdAt;
@@ -152,6 +164,30 @@ public class ApiJpa {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Set<PolicyConfigurationJpa> getPolicies() {
+        return policies;
+    }
+
+    public void setPolicies(Set<PolicyConfigurationJpa> policies) {
+        this.policies = policies;
+    }
+
+    public boolean isPrivateApi() {
+        return privateApi;
+    }
+
+    public void setPrivateApi(boolean privateApi) {
+        this.privateApi = privateApi;
+    }
+
+    public Set<ApiApplicationJpa> getApplications() {
+        return applications;
+    }
+
+    public void setApplications(Set<ApiApplicationJpa> applications) {
+        this.applications = applications;
     }
 
     @Override

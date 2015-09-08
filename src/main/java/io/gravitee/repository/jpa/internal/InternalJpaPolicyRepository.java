@@ -15,27 +15,13 @@
  */
 package io.gravitee.repository.jpa.internal;
 
-import java.util.List;
-import java.util.Set;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import io.gravitee.repository.jpa.model.ApiJpa;
-import io.gravitee.repository.model.Api;
-import io.gravitee.repository.model.OwnerType;
+import io.gravitee.repository.jpa.model.PolicyJpa;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
  */
-public interface InternalJpaApiRepository extends JpaRepository<ApiJpa, String> {
+public interface InternalJpaPolicyRepository extends JpaRepository<PolicyJpa, String> {
 
-    List<ApiJpa> findByOwnerAndOwnerType(String owner, OwnerType ownerType);
-
-    List<ApiJpa> findByOwnerAndOwnerTypeAndPrivateApi(String owner, OwnerType ownerType, boolean privateApi);
-
-    int countByOwnerAndOwnerType(String owner, OwnerType ownerType);
-
-    int countByOwnerAndOwnerTypeAndPrivateApi(String owner, OwnerType ownerType, boolean privateApi);
-
-    Set<Api> findByCreator(String userName);
 }
