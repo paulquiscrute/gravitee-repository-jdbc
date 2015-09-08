@@ -15,23 +15,13 @@
  */
 package io.gravitee.repository.jpa.internal;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import io.gravitee.repository.jpa.model.ApiApplicationId;
-import io.gravitee.repository.jpa.model.ApiApplicationJpa;
+import io.gravitee.repository.jpa.model.ApiKeyJpa;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
  */
-public interface InternalJpaApiApplicationRepository extends JpaRepository<ApiApplicationJpa, ApiApplicationId> {
+public interface InternalJpaApiKeyRepository extends JpaRepository<ApiKeyJpa, String> {
 
-    List<ApiApplicationJpa> findByApplicationName(String applicationName);
-
-    ApiApplicationJpa findByKey(String key);
-
-    List<ApiApplicationJpa> findByApplicationNameAndApiName(String applicationName, String apiName);
-
-    List<ApiApplicationJpa> findByApiName(String apiName);
 }

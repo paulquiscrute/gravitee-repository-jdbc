@@ -19,30 +19,30 @@ import static org.springframework.beans.BeanUtils.copyProperties;
 
 import org.springframework.stereotype.Component;
 
-import io.gravitee.repository.jpa.model.ApiApplicationJpa;
+import io.gravitee.repository.jpa.model.ApiKeyJpa;
 import io.gravitee.repository.model.ApiKey;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
  */
 @Component
-public class ApiApplicationJpaConverter extends AbstractConverter<ApiApplicationJpa, ApiKey> {
+public class ApiKeyJpaConverter extends AbstractConverter<ApiKeyJpa, ApiKey> {
 
-    public ApiKey convertTo(final ApiApplicationJpa apiApplicationJpa) {
-        if (apiApplicationJpa == null) {
+    public ApiKey convertTo(final ApiKeyJpa apiKeyJpa) {
+        if (apiKeyJpa == null) {
             return null;
         }
         final ApiKey apiKey = new ApiKey();
-        copyProperties(apiApplicationJpa, apiKey);
+        copyProperties(apiKeyJpa, apiKey);
         return apiKey;
     }
 
-    public ApiApplicationJpa convertFrom(final ApiKey apiKey) {
+    public ApiKeyJpa convertFrom(final ApiKey apiKey) {
         if (apiKey == null) {
             return null;
         }
-        final ApiApplicationJpa apiApplicationJpa = new ApiApplicationJpa();
-        copyProperties(apiKey, apiApplicationJpa);
-        return apiApplicationJpa;
+        final ApiKeyJpa apiKeyJpa = new ApiKeyJpa();
+        copyProperties(apiKey, apiKeyJpa);
+        return apiKeyJpa;
     }
 }

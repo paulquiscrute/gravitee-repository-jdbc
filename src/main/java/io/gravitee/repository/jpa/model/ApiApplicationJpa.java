@@ -18,6 +18,7 @@ package io.gravitee.repository.jpa.model;
 import java.util.Date;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
@@ -46,6 +47,10 @@ public class ApiApplicationJpa {
     private String configuration;
 
     private Date createdAt;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "key")
+    private ApiKeyJpa key;
 
     public ApplicationJpa getApplication() {
         return application;
@@ -79,6 +84,14 @@ public class ApiApplicationJpa {
         this.createdAt = createdAt;
     }
 
+    public ApiKeyJpa getKey() {
+        return key;
+    }
+
+    public void setKey(ApiKeyJpa key) {
+        this.key = key;
+    }
+
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -101,6 +114,7 @@ public class ApiApplicationJpa {
             ", api='" + api + '\'' +
             ", configuration='" + configuration + '\'' +
             ", createdAt=" + createdAt +
+            ", key=" + key +
             '}';
     }
 }
