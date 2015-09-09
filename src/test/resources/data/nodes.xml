@@ -1,0 +1,15 @@
+<!DOCTYPE dataset SYSTEM "dataset.dtd">
+<dataset>
+	<table name="NODE">
+		<column>name</column>
+		<column>host</column>
+		<column>cluster</column>
+		<column>lastStartupTime</column>
+		<row>
+			<value>Node</value>
+			<value>localhost</value>
+			<value>clusterA</value>
+			<value>2016-02-11 12:00:00</value>
+		</row>
+	</table>
+</dataset>
