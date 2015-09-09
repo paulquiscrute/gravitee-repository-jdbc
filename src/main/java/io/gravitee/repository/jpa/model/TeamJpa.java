@@ -29,6 +29,8 @@ import javax.persistence.Table;
 @Table(name = "TEAM")
 public class TeamJpa extends AbstractUserJpa {
 
+	private String description;
+
     /**
      * The team can only be visible for members.
      */
@@ -53,6 +55,14 @@ public class TeamJpa extends AbstractUserJpa {
 		this.privateTeam = privateTeam;
 	}
 
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public boolean equals(Object o) {
 		if (this == o) {
 			return true;
@@ -73,6 +83,7 @@ public class TeamJpa extends AbstractUserJpa {
 	@Override
 	public String toString() {
 		final StringBuilder sb = new StringBuilder("Team{");
+		sb.append(" description='").append(description).append(",\'");
 		sb.append(" email='").append(email).append(",\'");
 		sb.append(" teamname='").append(name).append("\'");
 		sb.append('}');

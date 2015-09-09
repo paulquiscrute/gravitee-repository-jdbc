@@ -99,9 +99,9 @@ public class JpaApiRepository implements ApiRepository {
 	private Api save(Api api, boolean creationMode) throws TechnicalException {
 		final boolean exists = internalJpaApiRepository.exists(api.getName());
 		if (creationMode && exists) {
-			throw new TechnicalException(format("The API '%s' can not be created cause already exists", api.getName()));
+			throw new IllegalStateException(format("The API '%s' can not be created cause already exists", api.getName()));
 		} else if (!creationMode && !exists) {
-			throw new TechnicalException(format("The API '%s' can not be updated cause does not exist", api.getName()));
+			throw new IllegalStateException(format("The API '%s' can not be updated cause does not exist", api.getName()));
 		}
 		return apiJpaConverter.convertTo(
 			internalJpaApiRepository.save(apiJpaConverter.convertFrom(api))
@@ -112,7 +112,7 @@ public class JpaApiRepository implements ApiRepository {
 		try {
 			internalJpaApiRepository.delete(apiName);
 		} catch (final EmptyResultDataAccessException e) {
-			throw new TechnicalException(format("Error while deleting api '%s'", apiName), e);
+			throw new IllegalStateException(format("Error while deleting api '%s'", apiName), e);
 		}
 	}
 

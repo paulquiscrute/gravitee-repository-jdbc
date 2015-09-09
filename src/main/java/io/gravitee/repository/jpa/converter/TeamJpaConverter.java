@@ -13,18 +13,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.gravitee.repository.jpa.internal;
+package io.gravitee.repository.jpa.converter;
 
-import java.util.List;
+import static org.springframework.beans.BeanUtils.copyProperties;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Component;
 
 import io.gravitee.repository.jpa.model.TeamJpa;
+import io.gravitee.repository.model.Team;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
  */
-public interface InternalJpaTeamRepository extends JpaRepository<TeamJpa, String> {
+@Component
+public class TeamJpaConverter extends AbstractConverter<TeamJpa, Team> {
 
-    List<TeamJpa> findByPrivateTeam(boolean privateTeam);
+    public Team convertTo(final TeamJpa teamJpa) {
+        if (teamJpa == null) {
+            return null;
+        }
+        final Team team = new Team();
+        copyProperties(teamJpa, team);
+        return team;
+    }
+
+    public TeamJpa convertFrom(final Team team) {
+        if (team == null) {
+            return null;
+        }
+        final TeamJpa teamJpa = new TeamJpa();
+        copyProperties(team, teamJpa);
+        return teamJpa;
+    }
 }

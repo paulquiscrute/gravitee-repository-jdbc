@@ -1,0 +1,27 @@
+<!DOCTYPE dataset SYSTEM "dataset.dtd">
+<dataset>
+	<table name="TEAM">
+		<column>name</column>
+		<column>email</column>
+		<column>description</column>
+		<column>privateTeam</column>
+		<column>createdAt</column>
+		<column>updatedAt</column>
+		<row>
+			<value>Gravitee</value>
+			<value>team@gravitee.io</value>
+			<value>Sample Gravitee description</value>
+			<value>true</value>
+			<value>2016-02-11 08:00:00</value>
+			<value>2016-02-11 09:00:01</value>
+		</row>
+		<row>
+			<value>Public</value>
+			<value>public@gravitee.io</value>
+			<value>Sample Public description</value>
+			<value>false</value>
+			<value>2016-02-11 08:00:00</value>
+			<value>2016-02-11 09:00:01</value>
+		</row>
+	</table>
+</dataset>

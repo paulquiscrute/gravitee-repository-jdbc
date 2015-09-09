@@ -18,6 +18,9 @@ package io.gravitee.repository.jpa.config;
 
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.inject.Inject;
 import javax.sql.DataSource;
@@ -78,5 +81,13 @@ public abstract class AbstractJpaRepositoryTest {
              DatabaseOperation.DELETE.execute(dbUnitConnection, dataSet);
         }
         dbUnitConnection.getConnection().close();
+    }
+
+    protected static Date toDate(final String date) {
+        try {
+            return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(date);
+        } catch (final ParseException e) {
+            throw new IllegalArgumentException(e);
+        }
     }
 }

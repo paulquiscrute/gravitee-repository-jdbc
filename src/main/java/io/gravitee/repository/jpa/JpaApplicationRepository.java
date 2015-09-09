@@ -64,7 +64,7 @@ public class JpaApplicationRepository implements ApplicationRepository {
 
 	public Application create(Application application) throws TechnicalException {
 		if (internalJpaApplicationRepository.exists(application.getName())) {
-			throw new TechnicalException(format("The application '%s' can not be created cause already exists", application.getName()));
+			throw new IllegalStateException(format("The application '%s' can not be created cause already exists", application.getName()));
 		}
 		final ApplicationJpa applicationJpa =
 			internalJpaApplicationRepository.save(applicationJpaConverter.convertFrom(application));
@@ -73,7 +73,7 @@ public class JpaApplicationRepository implements ApplicationRepository {
 
 	public Application update(Application application) throws TechnicalException {
 		if (!internalJpaApplicationRepository.exists(application.getName())) {
-			throw new TechnicalException(format("The application '%s' can not be updated cause does not exist", application.getName()));
+			throw new IllegalStateException(format("The application '%s' can not be updated cause does not exist", application.getName()));
 		}
 		final ApplicationJpa applicationJpa = internalJpaApplicationRepository.findOne(application.getName());
 
