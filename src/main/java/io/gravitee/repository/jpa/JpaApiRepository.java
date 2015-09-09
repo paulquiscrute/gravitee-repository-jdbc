@@ -96,7 +96,7 @@ public class JpaApiRepository implements ApiRepository {
 		return save(api, false);
 	}
 
-	private Api save(Api api, boolean creationMode) throws TechnicalException {
+	private Api save(Api api, boolean creationMode) {
 		final boolean exists = internalJpaApiRepository.exists(api.getName());
 		if (creationMode && exists) {
 			throw new IllegalStateException(format("The API '%s' can not be created cause already exists", api.getName()));
