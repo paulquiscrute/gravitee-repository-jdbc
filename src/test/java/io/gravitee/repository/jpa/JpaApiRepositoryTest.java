@@ -103,7 +103,7 @@ public class JpaApiRepositoryTest extends AbstractJpaRepositoryTest {
         assertEquals(numberOfApis + 1, apiRepository.findAll().size());
     }
 
-    @Test(expected = TechnicalException.class)
+    @Test(expected = IllegalStateException.class)
     public void shouldNotCreate() throws TechnicalException {
         final Api existingApi = new Api();
         existingApi.setName("teams");
@@ -124,7 +124,7 @@ public class JpaApiRepositoryTest extends AbstractJpaRepositoryTest {
         assertEquals(numberOfApis, apiRepository.findAll().size());
     }
 
-    @Test(expected = TechnicalException.class)
+    @Test(expected = IllegalStateException.class)
     public void shouldNotUpdate() throws TechnicalException {
         final Api newApi = new Api();
         newApi.setName("newApi");
@@ -139,7 +139,7 @@ public class JpaApiRepositoryTest extends AbstractJpaRepositoryTest {
         assertEquals(numberOfApis - 1, apiRepository.findAll().size());
     }
 
-    @Test(expected = TechnicalException.class)
+    @Test(expected = IllegalStateException.class)
     public void shouldNotDelete() throws TechnicalException {
         apiRepository.delete("notExists");
     }
