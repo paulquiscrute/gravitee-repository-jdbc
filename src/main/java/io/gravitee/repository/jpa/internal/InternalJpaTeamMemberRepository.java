@@ -15,21 +15,14 @@
  */
 package io.gravitee.repository.jpa.internal;
 
-import java.util.List;
-import java.util.Set;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import io.gravitee.repository.jpa.model.TeamJpa;
+import io.gravitee.repository.jpa.model.TeamMemberId;
+import io.gravitee.repository.jpa.model.TeamMemberJpa;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
  */
-public interface InternalJpaTeamRepository extends JpaRepository<TeamJpa, String> {
+public interface InternalJpaTeamMemberRepository extends JpaRepository<TeamMemberJpa, TeamMemberId> {
 
-    List<TeamJpa> findByPrivateTeam(boolean privateTeam);
-
-    Set<TeamJpa> findByMembersMemberName(String username);
-
-    TeamJpa findByNameAndMembersMemberName(String teamName, String memberName);
 }
