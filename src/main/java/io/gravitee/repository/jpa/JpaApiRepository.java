@@ -101,7 +101,7 @@ public class JpaApiRepository implements ApiRepository {
 		if (creationMode && exists) {
 			throw new TechnicalException(format("The API '%s' can not be created cause already exists", api.getName()));
 		} else if (!creationMode && !exists) {
-			throw new TechnicalException(format("The API '%s' can not be updated cause does not exists", api.getName()));
+			throw new TechnicalException(format("The API '%s' can not be updated cause does not exist", api.getName()));
 		}
 		return apiJpaConverter.convertTo(
 			internalJpaApiRepository.save(apiJpaConverter.convertFrom(api))

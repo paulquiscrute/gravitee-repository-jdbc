@@ -1,0 +1,53 @@
+<!DOCTYPE dataset SYSTEM "dataset.dtd">
+<dataset>
+	<table name="APPLICATION">
+		<column>name</column>
+		<column>createdAt</column>
+		<column>updatedAt</column>
+		<column>owner</column>
+		<row>
+			<value>Gravitee.IO</value>
+			<value>2016-02-11 12:00:00</value>
+			<value>2016-02-11 12:00:00</value>
+			<value>Gravitee</value>
+		</row>
+		<row>
+			<value>App2</value>
+			<value>2016-02-11 12:00:00</value>
+			<value>2016-02-11 12:00:00</value>
+			<value>Gravitee</value>
+		</row>
+		<row>
+			<value>Sirius</value>
+			<value>2016-02-11 12:00:00</value>
+			<value>2016-02-11 12:00:00</value>
+			<value>owner</value>
+		</row>
+	</table>
+	<table name="USER">
+		<column>name</column>
+		<column>email</column>
+		<row>
+			<value>creator</value>
+			<value>creator@gravitee.io</value>
+		</row>
+		<row>
+			<value>updater</value>
+			<value>updater@gravitee.io</value>
+		</row>
+		<row>
+			<value>owner</value>
+			<value>owner@gravitee.io</value>
+		</row>
+	</table>
+	<table name="TEAM">
+		<column>name</column>
+		<column>email</column>
+		<column>privateTeam</column>
+		<row>
+			<value>Gravitee</value>
+			<value>team@gravitee.io</value>
+			<value>true</value>
+		</row>
+	</table>
+</dataset>

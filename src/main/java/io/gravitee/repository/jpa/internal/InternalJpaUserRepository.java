@@ -15,18 +15,13 @@
  */
 package io.gravitee.repository.jpa.internal;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import io.gravitee.repository.jpa.model.ApplicationJpa;
+import io.gravitee.repository.jpa.model.UserJpa;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
  */
-public interface InternalJpaApplicationRepository extends JpaRepository<ApplicationJpa, String> {
+public interface InternalJpaUserRepository extends JpaRepository<UserJpa, String> {
 
-    List<ApplicationJpa> findByOwnerName(String name);
-
-    int countByOwnerName(String name);
 }
