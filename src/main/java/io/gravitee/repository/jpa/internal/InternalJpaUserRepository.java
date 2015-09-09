@@ -24,4 +24,5 @@ import io.gravitee.repository.jpa.model.UserJpa;
  */
 public interface InternalJpaUserRepository extends JpaRepository<UserJpa, String> {
 
+    UserJpa findByEmail(String email);
 }

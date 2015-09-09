@@ -1,0 +1,15 @@
+<!DOCTYPE dataset SYSTEM "dataset.dtd">
+<dataset>
+	<table name="USER">
+		<column>name</column>
+		<column>email</column>
+		<row>
+			<value>user</value>
+			<value>user@gravitee.io</value>
+		</row>
+		<row>
+			<value>admin</value>
+			<value>admin@gravitee.io</value>
+		</row>
+	</table>
+</dataset>
