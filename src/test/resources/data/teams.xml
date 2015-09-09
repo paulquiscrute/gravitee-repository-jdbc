@@ -1,6 +1,6 @@
 <!DOCTYPE dataset SYSTEM "dataset.dtd">
 <dataset>
-	<table name="TEAM">
+	<table name="GRAVITEE_TEAM">
 		<column>name</column>
 		<column>email</column>
 		<column>description</column>

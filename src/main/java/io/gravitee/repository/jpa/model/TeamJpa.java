@@ -26,7 +26,7 @@ import javax.persistence.Table;
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
  */
 @Entity
-@Table(name = "TEAM")
+@Table(name = "GRAVITEE_TEAM")
 public class TeamJpa extends AbstractUserJpa {
 
 	private String description;

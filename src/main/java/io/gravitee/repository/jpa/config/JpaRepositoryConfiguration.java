@@ -21,13 +21,9 @@ import javax.sql.DataSource;
 
 import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -93,20 +89,5 @@ public class JpaRepositoryConfiguration {
         final JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(graviteeEntityManagerFactory().getObject());
         return transactionManager;
-    }
-
-    @Bean
-    public static PropertySourcesPlaceholderConfigurer graviteePropertyPlaceholderConfigurer() {
-        final PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer = new PropertySourcesPlaceholderConfigurer();
-        propertySourcesPlaceholderConfigurer.setProperties(graviteeProperties());
-        return propertySourcesPlaceholderConfigurer;
-    }
-
-    @Bean
-    public static Properties graviteeProperties() {
-        final YamlPropertiesFactoryBean yaml = new YamlPropertiesFactoryBean();
-        final Resource yamlResource = new ClassPathResource("gravitee.yml");
-        yaml.setResources(yamlResource);
-        return yaml.getObject();
     }
 }

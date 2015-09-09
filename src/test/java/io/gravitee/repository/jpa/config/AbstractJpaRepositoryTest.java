@@ -43,7 +43,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = JpaRepositoryConfiguration.class)
+@ContextConfiguration(classes = JpaRepositoryConfigurationTest.class)
 @Transactional(rollbackFor = Throwable.class)
 public abstract class AbstractJpaRepositoryTest {
 

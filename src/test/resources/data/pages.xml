@@ -1,6 +1,6 @@
 <!DOCTYPE dataset SYSTEM "dataset.dtd">
 <dataset>
-	<table name="PAGE">
+	<table name="GRAVITEE_PAGE">
 		<column>name</column>
 		<column>pageOrder</column>
 		<column>apiName</column>

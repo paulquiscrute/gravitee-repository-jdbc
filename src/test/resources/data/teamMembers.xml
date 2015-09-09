@@ -1,6 +1,6 @@
 <!DOCTYPE dataset SYSTEM "dataset.dtd">
 <dataset>
-	<table name="USER">
+	<table name="GRAVITEE_USER">
 		<column>name</column>
 		<column>email</column>
 		<row>
@@ -12,7 +12,7 @@
 			<value>admin@gravitee.io</value>
 		</row>
 	</table>
-	<table name="TEAM">
+	<table name="GRAVITEE_TEAM">
 		<column>name</column>
 		<column>email</column>
 		<column>description</column>
@@ -36,7 +36,7 @@
 			<value>2016-02-11 09:00:01</value>
 		</row>
 	</table>
-	<table name="TEAM_MEMBER">
+	<table name="GRAVITEE_TEAM_MEMBER">
 		<column>team</column>
 		<column>member</column>
 		<column>role</column>

@@ -1,6 +1,6 @@
 <!DOCTYPE dataset SYSTEM "dataset.dtd">
 <dataset>
-	<table name="NODE">
+	<table name="GRAVITEE_NODE">
 		<column>name</column>
 		<column>host</column>
 		<column>cluster</column>

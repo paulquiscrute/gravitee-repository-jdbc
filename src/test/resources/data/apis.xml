@@ -1,12 +1,12 @@
 <!DOCTYPE dataset SYSTEM "dataset.dtd">
 <dataset>
-	<table name="APPLICATION">
+	<table name="GRAVITEE_APPLICATION">
 		<column>name</column>
 		<row>
 			<value>Gravitee.IO</value>
 		</row>
 	</table>
-	<table name="POLICY">
+	<table name="GRAVITEE_POLICY">
 		<column>name</column>
 		<row>
 			<value>cors</value>
@@ -15,7 +15,7 @@
 			<value>apiKey</value>
 		</row>
 	</table>
-	<table name="API">
+	<table name="GRAVITEE_API">
 		<column>name</column>
 		<column>description</column>
 		<column>version</column>
@@ -60,7 +60,7 @@
 			<value>user</value>
 		</row>
 	</table>
-	<table name="POLICY_CONFIGURATION">
+	<table name="GRAVITEE_POLICY_CONFIGURATION">
 		<column>policy</column>
 		<column>api</column>
 		<column>configuration</column>
@@ -75,7 +75,7 @@
 			<value>{properties: 'key;expireOn;revoke;createdAt'}</value>
 		</row>
 	</table>
-	<table name="API_APPLICATION">
+	<table name="GRAVITEE_API_APPLICATION">
 		<column>application</column>
 		<column>api</column>
 		<row>

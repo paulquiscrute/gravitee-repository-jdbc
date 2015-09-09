@@ -26,7 +26,7 @@ import javax.persistence.Table;
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
  */
 @Entity
-@Table(name = "API_KEY")
+@Table(name = "GRAVITEE_API_KEY")
 public class ApiKeyJpa {
 
 	@Id

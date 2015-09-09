@@ -1,12 +1,12 @@
 <!DOCTYPE dataset SYSTEM "dataset.dtd">
 <dataset>
-	<table name="APPLICATION">
+	<table name="GRAVITEE_APPLICATION">
 		<column>name</column>
 		<row>
 			<value>Gravitee.IO</value>
 		</row>
 	</table>
-	<table name="API">
+	<table name="GRAVITEE_API">
 		<column>name</column>
 		<column>description</column>
 		<column>version</column>
@@ -33,7 +33,7 @@
 			<value>user</value>
 		</row>
 	</table>
-	<table name="API_KEY">
+	<table name="GRAVITEE_API_KEY">
 		<column>key</column>
 		<column>revoked</column>
 		<row>
@@ -45,7 +45,7 @@
 			<value>false</value>
 		</row>
 	</table>
-	<table name="API_APPLICATION">
+	<table name="GRAVITEE_API_APPLICATION">
 		<column>application</column>
 		<column>api</column>
 		<column>key</column>

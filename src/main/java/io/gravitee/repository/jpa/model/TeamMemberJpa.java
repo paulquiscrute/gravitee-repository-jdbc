@@ -29,7 +29,7 @@ import javax.persistence.Table;
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
  */
 @Entity
-@Table(name = "TEAM_MEMBER")
+@Table(name = "GRAVITEE_TEAM_MEMBER")
 @IdClass(TeamMemberId.class)
 public class TeamMemberJpa {
 

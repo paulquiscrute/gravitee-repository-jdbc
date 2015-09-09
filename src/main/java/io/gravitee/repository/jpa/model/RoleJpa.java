@@ -19,17 +19,23 @@ import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
  */
 @Entity
-@Table(name = "ROLE")
+@Table(name = "GRAVITEE_ROLE")
 public class RoleJpa {
 
     @Id
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "user")
+    private UserJpa user;
 
     public String getName() {
         return name;
@@ -37,6 +43,14 @@ public class RoleJpa {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public UserJpa getUser() {
+        return user;
+    }
+
+    public void setUser(UserJpa user) {
+        this.user = user;
     }
 
     public boolean equals(Object o) {
@@ -57,6 +71,7 @@ public class RoleJpa {
     public String toString() {
         return "RoleJpa{" +
             "name='" + name + '\'' +
+            "user='" + user + '\'' +
             '}';
     }
 }

@@ -29,7 +29,7 @@ import javax.persistence.Table;
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
  */
 @Entity
-@Table(name = "POLICY_CONFIGURATION")
+@Table(name = "GRAVITEE_POLICY_CONFIGURATION")
 @IdClass(PolicyConfigurationId.class)
 public class PolicyConfigurationJpa {
 

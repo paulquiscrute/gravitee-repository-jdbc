@@ -26,7 +26,7 @@ import javax.persistence.Table;
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
  */
 @Entity
-@Table(name = "NODE")
+@Table(name = "GRAVITEE_NODE")
 public class NodeJpa {
 
 	@Id

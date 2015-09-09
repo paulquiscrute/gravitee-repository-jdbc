@@ -27,7 +27,7 @@ import javax.persistence.Table;
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
  */
 @Entity
-@Table(name = "PAGE")
+@Table(name = "GRAVITEE_PAGE")
 public class PageJpa {
 
 	@Id

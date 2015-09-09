@@ -26,7 +26,7 @@ import javax.persistence.Table;
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
  */
 @Entity
-@Table(name = "USER")
+@Table(name = "GRAVITEE_USER")
 public class UserJpa extends AbstractUserJpa {
 
     private String firstname;
@@ -35,7 +35,7 @@ public class UserJpa extends AbstractUserJpa {
 
     private String password;
 
-    @OneToMany
+    @OneToMany(mappedBy = "user")
     private List<RoleJpa> roles;
 
     public String getFirstname() {
@@ -87,6 +87,7 @@ public class UserJpa extends AbstractUserJpa {
     public int hashCode() {
         return Objects.hash(super.hashCode(), name);
     }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("User{");

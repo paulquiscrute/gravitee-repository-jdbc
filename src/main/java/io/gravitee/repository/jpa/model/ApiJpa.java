@@ -35,7 +35,7 @@ import io.gravitee.repository.model.OwnerType;
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
  */
 @Entity
-@Table(name = "API")
+@Table(name = "GRAVITEE_API")
 public class ApiJpa {
 
     @Id

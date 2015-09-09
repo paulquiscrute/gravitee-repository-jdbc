@@ -30,7 +30,7 @@ import javax.persistence.Table;
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
  */
 @Entity
-@Table(name = "APPLICATION")
+@Table(name = "GRAVITEE_APPLICATION")
 public class ApplicationJpa {
 
 	@Id
