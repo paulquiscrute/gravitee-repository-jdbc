@@ -149,8 +149,8 @@ public class JpaApiRepository implements ApiRepository {
 			).findFirst();
 
 		if (optionalApi.isPresent()) {
-			final PolicyConfigurationJpa configurationMongo = optionalApi.get();
-			configurationMongo.setConfiguration(policyConfiguration.getConfiguration());
+			final PolicyConfigurationJpa configurationJpa = optionalApi.get();
+			configurationJpa.setConfiguration(policyConfiguration.getConfiguration());
 			internalJpaApiRepository.save(api);
 		}
 	}
