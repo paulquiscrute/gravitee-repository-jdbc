@@ -1,5 +1,11 @@
 <!DOCTYPE dataset SYSTEM "dataset.dtd">
 <dataset>
+	<table name="GRAVITEE_ROLE">
+		<column>name</column>
+		<row>
+			<value>ADMIN</value>
+		</row>
+	</table>
 	<table name="GRAVITEE_USER">
 		<column>name</column>
 		<column>email</column>

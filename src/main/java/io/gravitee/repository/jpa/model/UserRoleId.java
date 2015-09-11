@@ -15,48 +15,56 @@
  */
 package io.gravitee.repository.jpa.model;
 
+import java.io.Serializable;
 import java.util.Objects;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
  */
-@Entity
-@Table(name = "GRAVITEE_ROLE")
-public class RoleJpa {
+public class UserRoleId implements Serializable {
 
-    @Id
-    private String name;
+    private static final long serialVersionUID = 428682958725100363L;
 
-    public String getName() {
-        return name;
+    private String user;
+
+    private String role;
+
+    public String getUser() {
+        return user;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof RoleJpa)) {
+        if (!(o instanceof UserRoleId)) {
             return false;
         }
-        RoleJpa roleJpa = (RoleJpa) o;
-        return Objects.equals(name, roleJpa.name);
+        UserRoleId that = (UserRoleId) o;
+        return Objects.equals(user, that.user) &&
+            Objects.equals(role, that.role);
     }
 
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash(user, role);
     }
 
     public String toString() {
-        return "RoleJpa{" +
-            "name='" + name + '\'' +
+        return "UserRoleId{" +
+            "user='" + user + '\'' +
+            ", role='" + role + '\'' +
             '}';
     }
 }

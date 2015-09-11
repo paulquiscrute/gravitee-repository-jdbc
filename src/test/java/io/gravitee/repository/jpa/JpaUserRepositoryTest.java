@@ -15,6 +15,7 @@
  */
 package io.gravitee.repository.jpa;
 
+import java.util.Arrays;
 import java.util.Optional;
 import java.util.Set;
 
@@ -47,6 +48,7 @@ public class JpaUserRepositoryTest extends AbstractJpaRepositoryTest {
         User user = new User();
         user.setUsername(username);
         user.setEmail(String.format("%s@gravitee.io", username));
+        user.setRoles(Arrays.asList("ADMIN"));
         User userCreated = userRepository.create(user);
 
         Assert.assertNotNull("User created is null", userCreated);
@@ -58,6 +60,7 @@ public class JpaUserRepositoryTest extends AbstractJpaRepositoryTest {
 
         Assert.assertEquals("Invalid saved user name.", user.getUsername(), userFound.getUsername());
         Assert.assertEquals("Invalid saved user mail.", user.getEmail(), userFound.getEmail());
+        Assert.assertEquals("Invalid saved user roles.", user.getRoles(), userFound.getRoles());
     }
 
     @Test

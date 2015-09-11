@@ -15,10 +15,13 @@
  */
 package io.gravitee.repository.jpa.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -36,7 +39,7 @@ public class TeamJpa extends AbstractUserJpa {
      */
     private boolean privateTeam;
 
-	@OneToMany(mappedBy="team")
+	@OneToMany(mappedBy="team", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<TeamMemberJpa> members;
 
 	public List<TeamMemberJpa> getMembers() {
@@ -45,6 +48,13 @@ public class TeamJpa extends AbstractUserJpa {
 
 	public void setMembers(List<TeamMemberJpa> members) {
 		this.members = members;
+	}
+
+	public void addMember(TeamMemberJpa teamMemberJpa) {
+		if (this.members == null) {
+			this.members = new ArrayList<>();
+		}
+		this.members.add(teamMemberJpa);
 	}
 
 	public boolean isPrivateTeam() {

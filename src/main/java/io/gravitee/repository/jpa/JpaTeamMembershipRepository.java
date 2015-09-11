@@ -60,7 +60,7 @@ public class JpaTeamMembershipRepository implements TeamMembershipRepository {
         final TeamJpa team = internalJpaTeamRepository.findOne(teamName);
         teamMemberJpa.setTeam(team);
 
-        team.getMembers().add(teamMemberJpa);
+        team.addMember(teamMemberJpa);
         internalJpaTeamRepository.save(team);
     }
 

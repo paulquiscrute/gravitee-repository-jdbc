@@ -17,8 +17,15 @@ package io.gravitee.repository.jpa.converter;
 
 import static org.springframework.beans.BeanUtils.copyProperties;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
+import javax.inject.Inject;
+
 import org.springframework.stereotype.Component;
 
+import io.gravitee.repository.jpa.internal.InternalJpaRoleRepository;
+import io.gravitee.repository.jpa.model.RoleJpa;
 import io.gravitee.repository.jpa.model.UserJpa;
 import io.gravitee.repository.model.User;
 
@@ -28,6 +35,9 @@ import io.gravitee.repository.model.User;
 @Component
 public class UserJpaConverter extends AbstractConverter<UserJpa, User> {
 
+    @Inject
+    private InternalJpaRoleRepository internalJpaRoleRepository;
+
     public User convertTo(final UserJpa userJpa) {
         if (userJpa == null) {
             return null;
@@ -35,6 +45,10 @@ public class UserJpaConverter extends AbstractConverter<UserJpa, User> {
         final User user = new User();
         copyProperties(userJpa, user);
         user.setUsername(userJpa.getName());
+        final List<RoleJpa> roles = userJpa.getRoles();
+        if (roles != null) {
+            user.setRoles(roles.stream().map(role -> role.getName()).collect(Collectors.toList()));
+        }
         return user;
     }
 
@@ -45,6 +59,9 @@ public class UserJpaConverter extends AbstractConverter<UserJpa, User> {
         final UserJpa userJpa = new UserJpa();
         copyProperties(user, userJpa);
         userJpa.setName(user.getUsername());
+
+        userJpa.setRoles(internalJpaRoleRepository.findAllByName(user.getRoles()));
+
         return userJpa;
     }
 }

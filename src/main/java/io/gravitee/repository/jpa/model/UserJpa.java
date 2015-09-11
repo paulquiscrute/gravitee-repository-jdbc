@@ -19,7 +19,9 @@ import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.FetchType;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
@@ -35,7 +37,8 @@ public class UserJpa extends AbstractUserJpa {
 
     private String password;
 
-    @OneToMany(mappedBy = "user")
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name="GRAVITEE_USER_ROLE")
     private List<RoleJpa> roles;
 
     public String getFirstname() {
