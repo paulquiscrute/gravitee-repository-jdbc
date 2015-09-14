@@ -28,6 +28,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.transaction.support.AbstractPlatformTransactionManager;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
@@ -85,7 +86,7 @@ public class JpaRepositoryConfiguration {
     }
 
     @Bean
-    public JpaTransactionManager graviteeTransactionManager() {
+    public AbstractPlatformTransactionManager graviteeTransactionManager() {
         final JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(graviteeEntityManagerFactory().getObject());
         return transactionManager;
