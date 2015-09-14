@@ -15,7 +15,6 @@
  */
 package io.gravitee.repository.jpa.model;
 
-import java.net.URI;
 import java.util.Date;
 import java.util.Objects;
 import java.util.Set;
@@ -45,9 +44,9 @@ public class ApiJpa {
 
     private String description;
 
-    private URI publicURI;
+    private String publicURI;
     
-    private URI targetURI;
+    private String targetURI;
 
     private Date createdAt;
     
@@ -62,6 +61,7 @@ public class ApiJpa {
 
     private boolean privateApi;
 
+    @Enumerated(EnumType.STRING)
     private LifecycleState lifecycleState = LifecycleState.STOPPED;
 
     @OneToMany(mappedBy="api", cascade = CascadeType.ALL)
@@ -94,19 +94,19 @@ public class ApiJpa {
         this.name = name;
     }
 
-    public URI getPublicURI() {
+    public String getPublicURI() {
         return publicURI;
     }
 
-    public void setPublicURI(URI publicURI) {
+    public void setPublicURI(String publicURI) {
         this.publicURI = publicURI;
     }
 
-    public URI getTargetURI() {
+    public String getTargetURI() {
         return targetURI;
     }
 
-    public void setTargetURI(URI targetURI) {
+    public void setTargetURI(String targetURI) {
         this.targetURI = targetURI;
     }
 

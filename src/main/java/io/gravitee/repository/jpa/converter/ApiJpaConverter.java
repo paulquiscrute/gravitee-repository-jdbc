@@ -17,6 +17,8 @@ package io.gravitee.repository.jpa.converter;
 
 import static org.springframework.beans.BeanUtils.copyProperties;
 
+import java.net.URI;
+
 import org.springframework.stereotype.Component;
 
 import io.gravitee.repository.jpa.model.ApiJpa;
@@ -34,6 +36,14 @@ public class ApiJpaConverter extends AbstractConverter<ApiJpa, Api> {
         }
         final Api api = new Api();
         copyProperties(apiJpa, api);
+        final String publicURI = apiJpa.getPublicURI();
+        if (publicURI != null) {
+            api.setPublicURI(URI.create(publicURI));
+        }
+        final String targetURI = apiJpa.getTargetURI();
+        if (targetURI != null) {
+            api.setTargetURI(URI.create(targetURI));
+        }
         return api;
     }
 
@@ -43,6 +53,14 @@ public class ApiJpaConverter extends AbstractConverter<ApiJpa, Api> {
         }
         final ApiJpa apiJpa = new ApiJpa();
         copyProperties(api, apiJpa);
+        final URI publicURI = api.getPublicURI();
+        if (publicURI != null) {
+            apiJpa.setPublicURI(publicURI.toString());
+        }
+        final URI targetURI = api.getTargetURI();
+        if (targetURI != null) {
+            apiJpa.setTargetURI(targetURI.toString());
+        }
         return apiJpa;
     }
 }
