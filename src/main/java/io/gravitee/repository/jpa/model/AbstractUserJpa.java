@@ -28,7 +28,7 @@ import javax.persistence.InheritanceType;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class AbstractUserJpa {
+public abstract class AbstractUserJpa {
 
 	@Id
 	protected String name;
