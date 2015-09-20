@@ -37,6 +37,7 @@ public class PageJpa {
 
 	private String title;
 
+	@Column(length = 15000)
 	private String content;
 
 	private String lastContributor;

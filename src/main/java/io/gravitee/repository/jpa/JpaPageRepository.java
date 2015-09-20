@@ -36,45 +36,45 @@ import io.gravitee.repository.model.Page;
 @Repository
 public class JpaPageRepository implements PageRepository {
 
-	@Inject
-	private InternalJpaPageRepository internalJpaPageRepository;
+    @Inject
+    private InternalJpaPageRepository internalJpaPageRepository;
 
-	@Inject
-	private PageJpaConverter pageJpaConverter;
+    @Inject
+    private PageJpaConverter pageJpaConverter;
 
-	public Set<Page> findByApiName(String apiName) throws TechnicalException {
-		return pageJpaConverter.convertAllTo(internalJpaPageRepository.findByApiName(apiName));
-	}
+    public Set<Page> findByApiName(String apiName) throws TechnicalException {
+        return pageJpaConverter.convertAllTo(internalJpaPageRepository.findByApiName(apiName));
+    }
 
-	public Optional<Page> findByName(String name) throws TechnicalException {
-		return Optional.ofNullable(pageJpaConverter.convertTo(internalJpaPageRepository.findOne(name)));
-	}
+    public Optional<Page> findByName(String name) throws TechnicalException {
+        return Optional.ofNullable(pageJpaConverter.convertTo(internalJpaPageRepository.findOne(name)));
+    }
 
-	public Page create(Page page) throws TechnicalException {
-		return save(page, true);
-	}
+    public Page create(Page page) throws TechnicalException {
+        return save(page, true);
+    }
 
-	public Page update(Page page) throws TechnicalException {
-		return save(page, false);
-	}
+    public Page update(Page page) throws TechnicalException {
+        return save(page, false);
+    }
 
-	private Page save(Page page, boolean creationMode) {
-		final boolean exists = internalJpaPageRepository.exists(page.getName());
-		if (creationMode && exists) {
-			throw new IllegalStateException(format("The page '%s' can not be created cause already exists", page.getName()));
-		} else if (!creationMode && !exists) {
-			throw new IllegalStateException(format("The page '%s' can not be updated cause does not exist", page.getName()));
-		}
-		return pageJpaConverter.convertTo(
-			internalJpaPageRepository.save(pageJpaConverter.convertFrom(page))
-		);
-	}
+    private Page save(Page page, boolean creationMode) {
+        final boolean exists = internalJpaPageRepository.exists(page.getName());
+        if (creationMode && exists) {
+            throw new IllegalStateException(format("The page '%s' can not be created cause already exists", page.getName()));
+        } else if (!creationMode && !exists) {
+            throw new IllegalStateException(format("The page '%s' can not be updated cause does not exist", page.getName()));
+        }
+        return pageJpaConverter.convertTo(
+            internalJpaPageRepository.save(pageJpaConverter.convertFrom(page))
+        );
+    }
 
-	public void delete(String name) throws TechnicalException {
-		internalJpaPageRepository.delete(name);
-	}
+    public void delete(String name) throws TechnicalException {
+        internalJpaPageRepository.delete(name);
+    }
 
-	public int findMaxPageOrderByApiName(String apiName) throws TechnicalException {
-		return internalJpaPageRepository.findMaxOrderByApiName(apiName);
-	}
+    public Integer findMaxPageOrderByApiName(String apiName) throws TechnicalException {
+        return internalJpaPageRepository.findMaxOrderByApiName(apiName);
+    }
 }

@@ -4,15 +4,18 @@
 		<column>name</column>
 		<column>pageOrder</column>
 		<column>apiName</column>
+		<column>type</column>
 		<row>
 			<value>page test</value>
 			<value>0</value>
 			<value>tests</value>
+			<value>MARKDOWN</value>
 		</row>
 		<row>
 			<value>page test2</value>
 			<value>1</value>
 			<value>tests</value>
+			<value>MARKDOWN</value>
 		</row>
 	</table>
 </dataset>

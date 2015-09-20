@@ -21,6 +21,7 @@ import org.springframework.stereotype.Component;
 
 import io.gravitee.repository.jpa.model.PageJpa;
 import io.gravitee.repository.model.Page;
+import io.gravitee.repository.model.PageType;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
@@ -34,6 +35,7 @@ public class PageJpaConverter extends AbstractConverter<PageJpa, Page> {
         }
         final Page page = new Page();
         copyProperties(pageJpa, page);
+        page.setType(PageType.valueOf(pageJpa.getType()));
         return page;
     }
 
@@ -43,6 +45,8 @@ public class PageJpaConverter extends AbstractConverter<PageJpa, Page> {
         }
         final PageJpa pageJpa = new PageJpa();
         copyProperties(page, pageJpa);
+        final PageType pageType = page.getType();
+        pageJpa.setType(pageType.name());
         return pageJpa;
     }
 }

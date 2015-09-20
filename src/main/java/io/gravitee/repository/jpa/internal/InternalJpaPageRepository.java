@@ -19,7 +19,6 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 
 import io.gravitee.repository.jpa.model.PageJpa;
 
@@ -31,5 +30,5 @@ public interface InternalJpaPageRepository extends JpaRepository<PageJpa, String
     List<PageJpa> findByApiName(String apiName);
 
     @Query("select max(p.order) from PageJpa p where p.apiName = ?1")
-    int findMaxOrderByApiName(String apiName);
+    Integer findMaxOrderByApiName(String apiName);
 }

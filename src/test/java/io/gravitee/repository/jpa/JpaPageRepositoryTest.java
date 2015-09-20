@@ -25,6 +25,7 @@ import io.gravitee.repository.api.PageRepository;
 import io.gravitee.repository.exceptions.TechnicalException;
 import io.gravitee.repository.jpa.config.AbstractJpaRepositoryTest;
 import io.gravitee.repository.model.Page;
+import io.gravitee.repository.model.PageType;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
@@ -42,6 +43,7 @@ public class JpaPageRepositoryTest extends AbstractJpaRepositoryTest {
     public void shouldCreate() throws TechnicalException {
         final Page page = new Page();
         page.setName("newPage");
+        page.setType(PageType.RAML);
         final Page newPage = pageRepository.create(page);
         assertEquals(page.getName(), newPage.getName());
         assertTrue(pageRepository.findByName(page.getName()).isPresent());
@@ -76,6 +78,6 @@ public class JpaPageRepositoryTest extends AbstractJpaRepositoryTest {
 
     @Test
     public void shouldFindMaxPageOrderByApiName() throws TechnicalException {
-        assertEquals(1, pageRepository.findMaxPageOrderByApiName("tests"));
+        assertEquals(1, pageRepository.findMaxPageOrderByApiName("tests").intValue());
     }
 }
