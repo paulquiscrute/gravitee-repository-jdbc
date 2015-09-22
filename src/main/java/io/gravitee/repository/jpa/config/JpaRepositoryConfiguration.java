@@ -30,6 +30,8 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.support.AbstractPlatformTransactionManager;
 
+import liquibase.integration.spring.SpringLiquibase;
+
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
  */
@@ -46,8 +48,6 @@ public class JpaRepositoryConfiguration {
     private String hibernateDialect;
     @Value("${repository.jpa.showSql:#{false}}")
     private String showSql;
-    @Value("${repository.jpa.hbm2ddlAuto:#{null}}")
-    private String hbm2ddlAuto;
 
     @Value("${repository.jpa.driverClassName:#{null}}")
     private String driverClassName;
@@ -74,7 +74,6 @@ public class JpaRepositoryConfiguration {
         final Properties hibernateProperties = new Properties();
         hibernateProperties.put("hibernate.dialect", hibernateDialect);
         hibernateProperties.put("hibernate.show_sql", showSql);
-        hibernateProperties.put("hibernate.hbm2ddl.auto", hbm2ddlAuto);
 
         final LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setPackagesToScan("io.gravitee.repository.jpa.model");
@@ -90,5 +89,13 @@ public class JpaRepositoryConfiguration {
         final JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(graviteeEntityManagerFactory().getObject());
         return transactionManager;
+    }
+
+    @Bean
+    public SpringLiquibase liquibase() {
+        final SpringLiquibase liquibase = new SpringLiquibase();
+        liquibase.setDataSource(graviteeDataSource());
+        liquibase.setChangeLog("classpath:liquibase/master.yml");
+        return liquibase;
     }
 }

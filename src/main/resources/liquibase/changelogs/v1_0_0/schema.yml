@@ -1,0 +1,361 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 1.0.0
+      author: gravitee
+      changes:
+        - createTable:
+            tableName: GRAVITEE_PAGE
+            columns:
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: type
+                  type: varchar(50)
+              - column:
+                  name: title
+                  type: varchar(50)
+              - column:
+                  name: content
+                  type: text(15000)
+              - column:
+                  name: lastcontributor
+                  type: varchar(50)
+              - column:
+                  name: pageorder
+                  type: int
+              - column:
+                  name: apiname
+                  type: varchar(50)
+              - column:
+                  name: createdat
+                  type: datetime
+              - column:
+                  name: updatedat
+                  type: datetime
+        - createTable:
+            tableName: GRAVITEE_NODE
+            columns:
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: host
+                  type: varchar(50)
+              - column:
+                  name: cluster
+                  type: varchar(50)
+              - column:
+                  name: state
+                  type: varchar(50)
+              - column:
+                  name: laststartuptime
+                  type: datetime
+              - column:
+                  name: laststoptime
+                  type: datetime
+        - createTable:
+            tableName: GRAVITEE_API
+            columns:
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(255)
+              - column:
+                  name: version
+                  type: varchar(50)
+              - column:
+                  name: creator
+                  type: varchar(50)
+              - column:
+                  name: lifecyclestate
+                  type: varchar(50)
+              - column:
+                  name: owner
+                  type: varchar(50)
+              - column:
+                  name: ownertype
+                  type: varchar(50)
+              - column:
+                  name: privateapi
+                  type: boolean
+              - column:
+                  name: publicuri
+                  type: varchar(50)
+              - column:
+                  name: targeturi
+                  type: varchar(50)
+              - column:
+                  name: createdat
+                  type: datetime
+              - column:
+                  name: updatedat
+                  type: datetime
+        - createTable:
+            tableName: GRAVITEE_ROLE
+            columns:
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+        - createTable:
+            tableName: GRAVITEE_USER_ROLE
+            columns:
+              - column:
+                  name: gravitee_user_name
+                  type: varchar(50)
+              - column:
+                  name: roles_name
+                  type: varchar(50)
+        - createTable:
+            tableName: GRAVITEE_TEAM
+            columns:
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(255)
+              - column:
+                  name: email
+                  type: varchar(50)
+              - column:
+                  name: privateteam
+                  type: boolean
+              - column:
+                  name: createdat
+                  type: datetime
+              - column:
+                  name: updatedat
+                  type: datetime
+        - createTable:
+            tableName: GRAVITEE_USER
+            columns:
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: firstname
+                  type: varchar(50)
+              - column:
+                  name: lastname
+                  type: varchar(50)
+              - column:
+                  name: email
+                  type: varchar(50)
+              - column:
+                  name: privateteam
+                  type: boolean
+              - column:
+                  name: password
+                  type: varchar(50)
+              - column:
+                  name: createdat
+                  type: datetime
+              - column:
+                  name: updatedat
+                  type: datetime
+        - createTable:
+            tableName: GRAVITEE_APPLICATION
+            columns:
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(255)
+              - column:
+                  name: type
+                  type: varchar(50)
+              - column:
+                  name: creator_name
+                  type: varchar(50)
+              - column:
+                  name: owner
+                  type: varchar(50)
+              - column:
+                  name: createdat
+                  type: datetime
+              - column:
+                  name: updatedat
+                  type: datetime
+        - createTable:
+            tableName: GRAVITEE_TEAM_MEMBER
+            columns:
+              - column:
+                  name: member
+                  type: varchar(50)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: team
+                  type: varchar(50)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: role
+                  type: varchar(50)
+              - column:
+                  name: createdat
+                  type: datetime
+              - column:
+                  name: updatedat
+                  type: datetime
+        - createTable:
+            tableName: GRAVITEE_API_APPLICATION
+            columns:
+              - column:
+                  name: api
+                  type: varchar(50)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: application
+                  type: varchar(50)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: key
+                  type: varchar(50)
+              - column:
+                  name: configuration
+                  type: varchar(50)
+              - column:
+                  name: createdat
+                  type: datetime
+        - createTable:
+            tableName: GRAVITEE_API_KEY
+            columns:
+              - column:
+                  name: key
+                  type: varchar(50)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: expiration
+                  type: datetime
+              - column:
+                  name: revoked
+                  type: boolean
+              - column:
+                  name: createdat
+                  type: datetime
+        - createTable:
+            tableName: GRAVITEE_POLICY
+            columns:
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: configuration
+                  type: varchar(50)
+              - column:
+                  name: description
+                  type: varchar(255)
+              - column:
+                  name: version
+                  type: varchar(50)
+        - createTable:
+            tableName: GRAVITEE_POLICY_CONFIGURATION
+            columns:
+              - column:
+                  name: api
+                  type: varchar(50)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: policy
+                  type: varchar(50)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: configuration
+                  type: varchar(50)
+              - column:
+                  name: createdat
+                  type: datetime
+
+        - addForeignKeyConstraint:
+            baseColumnNames: creator_name
+            baseTableName: GRAVITEE_APPLICATION
+            constraintName: fk_application_user
+            referencedColumnNames: name
+            referencedTableName: GRAVITEE_USER
+
+        - addForeignKeyConstraint:
+            baseColumnNames: policy
+            baseTableName: GRAVITEE_POLICY_CONFIGURATION
+            constraintName: fk_policy_configuration_policy
+            referencedColumnNames: name
+            referencedTableName: GRAVITEE_POLICY
+        - addForeignKeyConstraint:
+            baseColumnNames: api
+            baseTableName: GRAVITEE_POLICY_CONFIGURATION
+            constraintName: fk_policy_configuration_api
+            referencedColumnNames: name
+            referencedTableName: GRAVITEE_API
+
+        - addForeignKeyConstraint:
+            baseColumnNames: member
+            baseTableName: GRAVITEE_TEAM_MEMBER
+            constraintName: fk_team_member_user
+            referencedColumnNames: name
+            referencedTableName: GRAVITEE_USER
+        - addForeignKeyConstraint:
+            baseColumnNames: team
+            baseTableName: GRAVITEE_TEAM_MEMBER
+            constraintName: fk_team_member_team
+            referencedColumnNames: name
+            referencedTableName: GRAVITEE_TEAM
+
+        - addForeignKeyConstraint:
+            baseColumnNames: api
+            baseTableName: GRAVITEE_API_APPLICATION
+            constraintName: fk_api_application_api
+            referencedColumnNames: name
+            referencedTableName: GRAVITEE_API
+        - addForeignKeyConstraint:
+            baseColumnNames: application
+            baseTableName: GRAVITEE_API_APPLICATION
+            constraintName: fk_api_application_application
+            referencedColumnNames: name
+            referencedTableName: GRAVITEE_APPLICATION
+        - addForeignKeyConstraint:
+            baseColumnNames: key
+            baseTableName: GRAVITEE_API_APPLICATION
+            constraintName: fk_api_application_key
+            referencedColumnNames: key
+            referencedTableName: GRAVITEE_API_KEY

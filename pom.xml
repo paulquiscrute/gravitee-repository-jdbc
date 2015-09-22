@@ -35,7 +35,6 @@
 		<dbunit.version>2.5.0</dbunit.version>
 		<gravitee-repository.version>1.0.0-SNAPSHOT</gravitee-repository.version>
 		<hibernate.version>4.3.8.Final</hibernate.version>
-		<h2.version>1.4.185</h2.version>
 		<hsqldb.version>2.3.2</hsqldb.version>
 		<javax.inject.version>1</javax.inject.version>
 		<logback.version>1.1.2</logback.version>
@@ -44,6 +43,9 @@
 		<snakeyaml.version>1.15</snakeyaml.version>
 		<spring.data.jpa.version>1.8.2.RELEASE</spring.data.jpa.version>
 		<spring.version>4.2.0.RELEASE</spring.version>
+		<liquibase.version>3.4.1</liquibase.version>
+		<liquibase-hibernate4.version>3.5</liquibase-hibernate4.version>
+		<liquibase-slf4j.version>1.2.1</liquibase-slf4j.version>
 	</properties>
 
 	<dependencies>
@@ -118,6 +120,30 @@
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-core</artifactId>
 			<version>${logback.version}</version>
+		</dependency>
+
+		<!-- Liquibase -->
+
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+			<version>${liquibase.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.liquibase.ext</groupId>
+			<artifactId>liquibase-hibernate4</artifactId>
+			<version>${liquibase-hibernate4.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.hibernate.javax.persistence</groupId>
+					<artifactId>hibernate-jpa-2.0-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.mattbertolini</groupId>
+			<artifactId>liquibase-slf4j</artifactId>
+			<version>${liquibase-slf4j.version}</version>
 		</dependency>
 
 		<!-- Test dependencies -->
