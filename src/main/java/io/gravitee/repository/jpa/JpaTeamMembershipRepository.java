@@ -117,6 +117,10 @@ public class JpaTeamMembershipRepository implements TeamMembershipRepository {
     public Member getMember(String teamName, String memberName) throws TechnicalException {
         final TeamJpa team = internalJpaTeamRepository.findByNameAndMembersMemberName(teamName, memberName);
 
+        if (team == null) {
+            return null;
+        }
+
         final Optional<TeamMemberJpa> optional = team.getMembers().stream().filter(
             member -> memberName.equalsIgnoreCase(member.getMember().getName())
         ).findFirst();

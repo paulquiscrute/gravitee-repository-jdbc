@@ -23,6 +23,7 @@ import org.springframework.stereotype.Component;
 
 import io.gravitee.repository.jpa.internal.InternalJpaUserRepository;
 import io.gravitee.repository.jpa.model.TeamMemberJpa;
+import io.gravitee.repository.jpa.model.UserJpa;
 import io.gravitee.repository.model.Member;
 
 /**
@@ -50,7 +51,11 @@ public class TeamMemberJpaConverter extends AbstractConverter<TeamMemberJpa, Mem
         }
         final TeamMemberJpa teamMemberJpa = new TeamMemberJpa();
         copyProperties(member, teamMemberJpa);
-        teamMemberJpa.setMember(internalJpaUserRepository.findOne(member.getUsername()));
+        final UserJpa user = internalJpaUserRepository.findOne(member.getUsername());
+        if (user == null) {
+            throw new IllegalArgumentException(String.format("The user '%s' does not exists!", member.getUsername()));
+        }
+        teamMemberJpa.setMember(user);
         teamMemberJpa.setRole(member.getRole().name());
         return teamMemberJpa;
     }

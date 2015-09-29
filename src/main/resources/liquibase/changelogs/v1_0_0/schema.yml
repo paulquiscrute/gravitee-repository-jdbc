@@ -168,7 +168,7 @@ databaseChangeLog:
                   type: boolean
               - column:
                   name: password
-                  type: varchar(50)
+                  type: varchar(100)
               - column:
                   name: createdat
                   type: datetime
@@ -359,3 +359,9 @@ databaseChangeLog:
             constraintName: fk_api_application_key
             referencedColumnNames: key
             referencedTableName: GRAVITEE_API_KEY
+
+      loadData:
+        encoding: UTF-8
+        file: liquibase/changelogs/v1_0_0/roles.csv
+        separator: ;
+        tableName: GRAVITEE_ROLE

@@ -46,7 +46,7 @@ public class UserJpaConverter extends AbstractConverter<UserJpa, User> {
         copyProperties(userJpa, user);
         user.setUsername(userJpa.getName());
         final List<RoleJpa> roles = userJpa.getRoles();
-        if (roles != null) {
+        if (roles != null && !roles.isEmpty()) {
             user.setRoles(roles.stream().map(role -> role.getName()).collect(Collectors.toList()));
         }
         return user;
@@ -60,7 +60,10 @@ public class UserJpaConverter extends AbstractConverter<UserJpa, User> {
         copyProperties(user, userJpa);
         userJpa.setName(user.getUsername());
 
-        userJpa.setRoles(internalJpaRoleRepository.findAllByName(user.getRoles()));
+        final List<String> roles = user.getRoles();
+        if (roles != null && !roles.isEmpty()) {
+            userJpa.setRoles(internalJpaRoleRepository.findAllByName(roles));
+        }
 
         return userJpa;
     }
