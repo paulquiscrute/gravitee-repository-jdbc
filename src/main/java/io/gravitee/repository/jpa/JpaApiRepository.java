@@ -28,7 +28,7 @@ import javax.inject.Inject;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Repository;
 
-import io.gravitee.repository.api.ApiRepository;
+import io.gravitee.repository.api.management.ApiRepository;
 import io.gravitee.repository.exceptions.TechnicalException;
 import io.gravitee.repository.jpa.converter.ApiJpaConverter;
 import io.gravitee.repository.jpa.converter.PolicyConfigurationJpaConverter;
@@ -38,9 +38,9 @@ import io.gravitee.repository.jpa.internal.InternalJpaPolicyConfigurationReposit
 import io.gravitee.repository.jpa.model.ApiApplicationJpa;
 import io.gravitee.repository.jpa.model.ApiJpa;
 import io.gravitee.repository.jpa.model.PolicyConfigurationJpa;
-import io.gravitee.repository.model.Api;
-import io.gravitee.repository.model.OwnerType;
-import io.gravitee.repository.model.PolicyConfiguration;
+import io.gravitee.repository.model.management.Api;
+import io.gravitee.repository.model.management.OwnerType;
+import io.gravitee.repository.model.management.PolicyConfiguration;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)

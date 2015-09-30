@@ -20,8 +20,8 @@ import static org.springframework.beans.BeanUtils.copyProperties;
 import org.springframework.stereotype.Component;
 
 import io.gravitee.repository.jpa.model.PageJpa;
-import io.gravitee.repository.model.Page;
-import io.gravitee.repository.model.PageType;
+import io.gravitee.repository.model.management.Page;
+import io.gravitee.repository.model.management.PageType;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)

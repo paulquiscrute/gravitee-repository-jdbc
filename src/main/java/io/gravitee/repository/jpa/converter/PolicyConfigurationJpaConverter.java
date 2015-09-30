@@ -23,7 +23,7 @@ import org.springframework.stereotype.Component;
 
 import io.gravitee.repository.jpa.internal.InternalJpaPolicyRepository;
 import io.gravitee.repository.jpa.model.PolicyConfigurationJpa;
-import io.gravitee.repository.model.PolicyConfiguration;
+import io.gravitee.repository.model.management.PolicyConfiguration;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)

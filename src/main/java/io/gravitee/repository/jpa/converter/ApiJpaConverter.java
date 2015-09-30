@@ -22,7 +22,7 @@ import java.net.URI;
 import org.springframework.stereotype.Component;
 
 import io.gravitee.repository.jpa.model.ApiJpa;
-import io.gravitee.repository.model.Api;
+import io.gravitee.repository.model.management.Api;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)

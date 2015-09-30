@@ -26,7 +26,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Repository;
 
-import io.gravitee.repository.api.UserRepository;
+import io.gravitee.repository.api.management.UserRepository;
 import io.gravitee.repository.exceptions.TechnicalException;
 import io.gravitee.repository.jpa.converter.UserJpaConverter;
 import io.gravitee.repository.jpa.internal.InternalJpaTeamRepository;
@@ -34,7 +34,7 @@ import io.gravitee.repository.jpa.internal.InternalJpaUserRepository;
 import io.gravitee.repository.jpa.model.TeamJpa;
 import io.gravitee.repository.jpa.model.TeamMemberJpa;
 import io.gravitee.repository.jpa.model.UserJpa;
-import io.gravitee.repository.model.User;
+import io.gravitee.repository.model.management.User;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)

@@ -21,11 +21,11 @@ import javax.inject.Inject;
 
 import org.junit.Test;
 
-import io.gravitee.repository.api.PageRepository;
+import io.gravitee.repository.api.management.PageRepository;
 import io.gravitee.repository.exceptions.TechnicalException;
 import io.gravitee.repository.jpa.config.AbstractJpaRepositoryTest;
-import io.gravitee.repository.model.Page;
-import io.gravitee.repository.model.PageType;
+import io.gravitee.repository.model.management.Page;
+import io.gravitee.repository.model.management.PageType;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)

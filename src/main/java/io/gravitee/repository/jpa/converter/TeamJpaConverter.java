@@ -20,7 +20,7 @@ import static org.springframework.beans.BeanUtils.copyProperties;
 import org.springframework.stereotype.Component;
 
 import io.gravitee.repository.jpa.model.TeamJpa;
-import io.gravitee.repository.model.Team;
+import io.gravitee.repository.model.management.Team;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)

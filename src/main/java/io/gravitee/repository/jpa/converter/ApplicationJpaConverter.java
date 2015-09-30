@@ -24,8 +24,8 @@ import org.springframework.stereotype.Component;
 import io.gravitee.repository.jpa.internal.InternalJpaUserRepository;
 import io.gravitee.repository.jpa.model.ApplicationJpa;
 import io.gravitee.repository.jpa.model.UserJpa;
-import io.gravitee.repository.model.Application;
-import io.gravitee.repository.model.OwnerType;
+import io.gravitee.repository.model.management.Application;
+import io.gravitee.repository.model.management.OwnerType;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)

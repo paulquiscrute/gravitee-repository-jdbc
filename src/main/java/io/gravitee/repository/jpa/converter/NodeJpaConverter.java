@@ -20,7 +20,7 @@ import static org.springframework.beans.BeanUtils.copyProperties;
 import org.springframework.stereotype.Component;
 
 import io.gravitee.repository.jpa.model.NodeJpa;
-import io.gravitee.repository.model.Node;
+import io.gravitee.repository.model.management.Node;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)

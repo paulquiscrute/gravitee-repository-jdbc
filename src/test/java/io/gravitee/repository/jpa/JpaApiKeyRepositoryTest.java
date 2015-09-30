@@ -26,10 +26,10 @@ import javax.inject.Inject;
 
 import org.junit.Test;
 
-import io.gravitee.repository.api.ApiKeyRepository;
+import io.gravitee.repository.api.management.ApiKeyRepository;
 import io.gravitee.repository.exceptions.TechnicalException;
 import io.gravitee.repository.jpa.config.AbstractJpaRepositoryTest;
-import io.gravitee.repository.model.ApiKey;
+import io.gravitee.repository.model.management.ApiKey;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)

@@ -27,7 +27,7 @@ import org.springframework.stereotype.Component;
 import io.gravitee.repository.jpa.internal.InternalJpaRoleRepository;
 import io.gravitee.repository.jpa.model.RoleJpa;
 import io.gravitee.repository.jpa.model.UserJpa;
-import io.gravitee.repository.model.User;
+import io.gravitee.repository.model.management.User;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)

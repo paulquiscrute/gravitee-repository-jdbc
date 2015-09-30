@@ -20,7 +20,7 @@ import static org.springframework.beans.BeanUtils.copyProperties;
 import org.springframework.stereotype.Component;
 
 import io.gravitee.repository.jpa.model.ApiKeyJpa;
-import io.gravitee.repository.model.ApiKey;
+import io.gravitee.repository.model.management.ApiKey;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)

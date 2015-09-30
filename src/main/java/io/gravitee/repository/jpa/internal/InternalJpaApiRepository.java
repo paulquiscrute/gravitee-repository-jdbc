@@ -21,8 +21,8 @@ import java.util.Set;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import io.gravitee.repository.jpa.model.ApiJpa;
-import io.gravitee.repository.model.Api;
-import io.gravitee.repository.model.OwnerType;
+import io.gravitee.repository.model.management.Api;
+import io.gravitee.repository.model.management.OwnerType;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)

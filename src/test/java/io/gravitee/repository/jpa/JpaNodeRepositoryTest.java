@@ -23,10 +23,10 @@ import javax.inject.Inject;
 import org.junit.Assert;
 import org.junit.Test;
 
-import io.gravitee.repository.api.NodeRepository;
+import io.gravitee.repository.api.management.NodeRepository;
 import io.gravitee.repository.exceptions.TechnicalException;
 import io.gravitee.repository.jpa.config.AbstractJpaRepositoryTest;
-import io.gravitee.repository.model.Node;
+import io.gravitee.repository.model.management.Node;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)

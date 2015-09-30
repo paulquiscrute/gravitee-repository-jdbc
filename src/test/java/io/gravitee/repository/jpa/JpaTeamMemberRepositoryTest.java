@@ -23,12 +23,12 @@ import javax.inject.Inject;
 import org.junit.Assert;
 import org.junit.Test;
 
-import io.gravitee.repository.api.TeamMembershipRepository;
+import io.gravitee.repository.api.management.TeamMembershipRepository;
 import io.gravitee.repository.exceptions.TechnicalException;
 import io.gravitee.repository.jpa.config.AbstractJpaRepositoryTest;
-import io.gravitee.repository.model.Member;
-import io.gravitee.repository.model.Team;
-import io.gravitee.repository.model.TeamRole;
+import io.gravitee.repository.model.management.Member;
+import io.gravitee.repository.model.management.Team;
+import io.gravitee.repository.model.management.TeamRole;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)

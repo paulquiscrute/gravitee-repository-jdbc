@@ -27,8 +27,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import io.gravitee.repository.model.LifecycleState;
-import io.gravitee.repository.model.OwnerType;
+import io.gravitee.repository.model.management.LifecycleState;
+import io.gravitee.repository.model.management.OwnerType;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)

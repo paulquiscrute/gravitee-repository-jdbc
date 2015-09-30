@@ -16,6 +16,7 @@
 package io.gravitee.repository.jpa.config;
 
 import io.gravitee.repository.Repository;
+import io.gravitee.repository.Scope;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
@@ -28,9 +29,14 @@ public class JpaRepository implements Repository {
     }
 
     @Override
-    public Class<?>[] configurations() {
-        return new Class<?>[] {
-                JpaRepositoryConfiguration.class
+    public Scope[] scopes() {
+        return new Scope[] {
+                Scope.MANAGEMENT
         };
+    }
+
+    @Override
+    public Class<?> configuration(Scope scope) {
+        return JpaRepositoryConfiguration.class;
     }
 }
