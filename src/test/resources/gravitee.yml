@@ -1,4 +1,4 @@
-repository:
+management:
   jpa:
     hibernateDialect: org.hibernate.dialect.HSQLDialect
     driverClassName: org.hsqldb.jdbc.JDBCDriver

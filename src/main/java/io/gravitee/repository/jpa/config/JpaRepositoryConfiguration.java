@@ -44,18 +44,18 @@ import liquibase.integration.spring.SpringLiquibase;
 )
 public class JpaRepositoryConfiguration {
 
-    @Value("${repository.jpa.hibernateDialect:#{null}}")
+    @Value("${management.jpa.hibernateDialect:#{null}}")
     private String hibernateDialect;
-    @Value("${repository.jpa.showSql:#{false}}")
+    @Value("${management.jpa.showSql:#{false}}")
     private String showSql;
 
-    @Value("${repository.jpa.driverClassName:#{null}}")
+    @Value("${management.jpa.driverClassName:#{null}}")
     private String driverClassName;
-    @Value("${repository.jpa.url:#{null}}")
+    @Value("${management.jpa.url:#{null}}")
     private String url;
-    @Value("${repository.jpa.username:#{null}}")
+    @Value("${management.jpa.username:#{null}}")
     private String username;
-    @Value("${repository.jpa.password:#{null}}")
+    @Value("${management.jpa.password:#{null}}")
     private String password;
 
 
