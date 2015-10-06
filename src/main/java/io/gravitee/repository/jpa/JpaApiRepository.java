@@ -17,7 +17,6 @@ package io.gravitee.repository.jpa;
 
 import static java.lang.String.format;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -31,16 +30,12 @@ import org.springframework.stereotype.Repository;
 import io.gravitee.repository.api.management.ApiRepository;
 import io.gravitee.repository.exceptions.TechnicalException;
 import io.gravitee.repository.jpa.converter.ApiJpaConverter;
-import io.gravitee.repository.jpa.converter.PolicyConfigurationJpaConverter;
 import io.gravitee.repository.jpa.internal.InternalJpaApiApplicationRepository;
 import io.gravitee.repository.jpa.internal.InternalJpaApiRepository;
-import io.gravitee.repository.jpa.internal.InternalJpaPolicyConfigurationRepository;
 import io.gravitee.repository.jpa.model.ApiApplicationJpa;
 import io.gravitee.repository.jpa.model.ApiJpa;
-import io.gravitee.repository.jpa.model.PolicyConfigurationJpa;
 import io.gravitee.repository.model.management.Api;
 import io.gravitee.repository.model.management.OwnerType;
-import io.gravitee.repository.model.management.PolicyConfiguration;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
@@ -51,14 +46,10 @@ public class JpaApiRepository implements ApiRepository {
 	@Inject
 	private InternalJpaApiRepository internalJpaApiRepository;
 	@Inject
-	private InternalJpaPolicyConfigurationRepository internalJpaPolicyConfigurationRepository;
-	@Inject
 	private InternalJpaApiApplicationRepository internalJpaApiApplicationRepository;
 
 	@Inject
 	private ApiJpaConverter apiJpaConverter;
-	@Inject
-	private PolicyConfigurationJpaConverter policyJpaConverter;
 
 	public Optional<Api> findByName(String apiName) throws TechnicalException {
 		return Optional.ofNullable(apiJpaConverter.convertTo(internalJpaApiRepository.findOne(apiName)));
@@ -132,32 +123,15 @@ public class JpaApiRepository implements ApiRepository {
 		}
 	}
 
-	public void updatePoliciesConfiguration(String apiName, List<PolicyConfiguration> policyConfigurations) throws TechnicalException {
+	public void updateDescriptor(String apiName, String jsonDescriptor) throws TechnicalException {
 		final ApiJpa api = internalJpaApiRepository.findOne(apiName);
-		final Set<PolicyConfigurationJpa> policies = policyJpaConverter.convertAllFrom(policyConfigurations);
-		policies.forEach(policy -> policy.setApi(api));
-		api.setPolicies(policies);
+		api.setJsonDescriptor(jsonDescriptor);
 		internalJpaApiRepository.save(api);
 	}
 
-	public void updatePolicyConfiguration(String apiName, PolicyConfiguration policyConfiguration) throws TechnicalException {
+	public String findDescriptorByApi(String apiName) throws TechnicalException {
 		final ApiJpa api = internalJpaApiRepository.findOne(apiName);
-
-		final Optional<PolicyConfigurationJpa> optionalApi =
-			api.getPolicies().stream().filter(
-				policyConfigurationJpa -> policyConfigurationJpa.getPolicy().equals(policyConfiguration.getPolicy())
-			).findFirst();
-
-		if (optionalApi.isPresent()) {
-			final PolicyConfigurationJpa configurationJpa = optionalApi.get();
-			configurationJpa.setConfiguration(policyConfiguration.getConfiguration());
-			internalJpaApiRepository.save(api);
-		}
-	}
-
-	public List<PolicyConfiguration> findPoliciesByApi(String apiName) throws TechnicalException {
-		final List<PolicyConfigurationJpa> policyConfigurations = internalJpaPolicyConfigurationRepository.findByApiName(apiName);
-		return new ArrayList<>(policyJpaConverter.convertAllTo(policyConfigurations));
+		return api.getJsonDescriptor();
 	}
 
 	public Set<Api> findByCreator(String userName) throws TechnicalException {

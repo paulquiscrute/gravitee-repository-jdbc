@@ -65,10 +65,9 @@ public class ApiJpa {
     private LifecycleState lifecycleState = LifecycleState.STOPPED;
 
     @OneToMany(mappedBy="api", cascade = CascadeType.ALL)
-    private Set<PolicyConfigurationJpa> policies;
-
-    @OneToMany(mappedBy="api", cascade = CascadeType.ALL)
     private Set<ApiApplicationJpa> applications;
+
+    private String jsonDescriptor;
 
     public Date getCreatedAt() {
         return createdAt;
@@ -166,14 +165,6 @@ public class ApiJpa {
         this.description = description;
     }
 
-    public Set<PolicyConfigurationJpa> getPolicies() {
-        return policies;
-    }
-
-    public void setPolicies(Set<PolicyConfigurationJpa> policies) {
-        this.policies = policies;
-    }
-
     public boolean isPrivateApi() {
         return privateApi;
     }
@@ -188,6 +179,14 @@ public class ApiJpa {
 
     public void setApplications(Set<ApiApplicationJpa> applications) {
         this.applications = applications;
+    }
+
+    public String getJsonDescriptor() {
+        return jsonDescriptor;
+    }
+
+    public void setJsonDescriptor(String jsonDescriptor) {
+        this.jsonDescriptor = jsonDescriptor;
     }
 
     @Override
@@ -218,6 +217,7 @@ public class ApiJpa {
             ", creator='" + creator + '\'' +
             ", privateApi=" + privateApi +
             ", lifecycleState=" + lifecycleState +
+            ", jsonDescriptor=" + jsonDescriptor +
             '}';
     }
 }

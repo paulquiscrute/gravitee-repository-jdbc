@@ -17,8 +17,6 @@ package io.gravitee.repository.jpa;
 
 import static org.junit.Assert.*;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -30,7 +28,6 @@ import io.gravitee.repository.api.management.ApiRepository;
 import io.gravitee.repository.exceptions.TechnicalException;
 import io.gravitee.repository.jpa.config.AbstractJpaRepositoryTest;
 import io.gravitee.repository.model.management.Api;
-import io.gravitee.repository.model.management.PolicyConfiguration;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
@@ -165,32 +162,15 @@ public class JpaApiRepositoryTest extends AbstractJpaRepositoryTest {
     }
 
     @Test
-    public void shouldUpdatePoliciesConfiguration() throws TechnicalException {
-        final PolicyConfiguration corsPolicy = new PolicyConfiguration();
-        corsPolicy.setPolicy("cors");
-        corsPolicy.setConfiguration("{ 'update:'cors' }");
-
-        final PolicyConfiguration apiKeyPolicy = new PolicyConfiguration();
-        apiKeyPolicy.setPolicy("apiKey");
-        apiKeyPolicy.setConfiguration("{ 'update:'apiKey' }");
-
-        apiRepository.updatePoliciesConfiguration("teams", Arrays.asList(corsPolicy, apiKeyPolicy));
-    }
-
-    @Test
     public void shouldUpdatePolicyConfiguration() throws TechnicalException {
-        final PolicyConfiguration corsPolicy = new PolicyConfiguration();
-        corsPolicy.setPolicy("cors");
-        corsPolicy.setConfiguration("{ 'update:'cors' }");
-
-        apiRepository.updatePolicyConfiguration("teams", corsPolicy);
+        apiRepository.updateDescriptor("teams", "{ 'update:'cors' }");
     }
 
     @Test
     public void shouldFindPoliciesByApi() throws TechnicalException {
-        final List<PolicyConfiguration> policies = apiRepository.findPoliciesByApi("teams");
-        assertNotNull(policies);
-        assertEquals(2, policies.size());
+        final String jsonDescriptor = apiRepository.findDescriptorByApi("teams");
+        assertNotNull(jsonDescriptor);
+        assertEquals("{plugins: 'jar1.jar; jar2.jar'}", jsonDescriptor);
     }
 
     @Test

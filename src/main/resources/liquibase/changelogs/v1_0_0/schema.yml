@@ -77,6 +77,9 @@ databaseChangeLog:
                   name: version
                   type: varchar(50)
               - column:
+                  name: jsondescriptor
+                  type: text
+              - column:
                   name: creator
                   type: varchar(50)
               - column:
@@ -268,45 +271,6 @@ databaseChangeLog:
               - column:
                   name: createdat
                   type: datetime
-        - createTable:
-            tableName: GRAVITEE_POLICY
-            columns:
-              - column:
-                  name: name
-                  type: varchar(50)
-                  constraints:
-                    primaryKey: true
-                    nullable: false
-              - column:
-                  name: configuration
-                  type: varchar(50)
-              - column:
-                  name: description
-                  type: varchar(255)
-              - column:
-                  name: version
-                  type: varchar(50)
-        - createTable:
-            tableName: GRAVITEE_POLICY_CONFIGURATION
-            columns:
-              - column:
-                  name: api
-                  type: varchar(50)
-                  constraints:
-                    primaryKey: true
-                    nullable: false
-              - column:
-                  name: policy
-                  type: varchar(50)
-                  constraints:
-                    primaryKey: true
-                    nullable: false
-              - column:
-                  name: configuration
-                  type: varchar(50)
-              - column:
-                  name: createdat
-                  type: datetime
 
         - addForeignKeyConstraint:
             baseColumnNames: creator_name
@@ -314,19 +278,6 @@ databaseChangeLog:
             constraintName: fk_application_user
             referencedColumnNames: name
             referencedTableName: GRAVITEE_USER
-
-        - addForeignKeyConstraint:
-            baseColumnNames: policy
-            baseTableName: GRAVITEE_POLICY_CONFIGURATION
-            constraintName: fk_policy_configuration_policy
-            referencedColumnNames: name
-            referencedTableName: GRAVITEE_POLICY
-        - addForeignKeyConstraint:
-            baseColumnNames: api
-            baseTableName: GRAVITEE_POLICY_CONFIGURATION
-            constraintName: fk_policy_configuration_api
-            referencedColumnNames: name
-            referencedTableName: GRAVITEE_API
 
         - addForeignKeyConstraint:
             baseColumnNames: member

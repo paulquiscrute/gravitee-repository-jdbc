@@ -6,15 +6,6 @@
 			<value>Gravitee.IO</value>
 		</row>
 	</table>
-	<table name="GRAVITEE_POLICY">
-		<column>name</column>
-		<row>
-			<value>cors</value>
-		</row>
-		<row>
-			<value>apiKey</value>
-		</row>
-	</table>
 	<table name="GRAVITEE_API">
 		<column>name</column>
 		<column>description</column>
@@ -23,6 +14,7 @@
 		<column>owner</column>
 		<column>ownerType</column>
 		<column>creator</column>
+		<column>jsonDescriptor</column>
 		<row>
 			<value>teams</value>
 			<value>Manage teams</value>
@@ -31,6 +23,7 @@
 			<value>Gravitee</value>
 			<value>TEAM</value>
 			<value>admin</value>
+			<value>{plugins: 'jar1.jar; jar2.jar'}</value>
 		</row>
 		<row>
 			<value>users</value>
@@ -40,6 +33,7 @@
 			<value>Gravitee</value>
 			<value>TEAM</value>
 			<value>admin</value>
+			<value>{plugins: 'jar1.jar; jar2.jar'}</value>
 		</row>
 		<row>
 			<value>products</value>
@@ -49,6 +43,7 @@
 			<value>User</value>
 			<value>USER</value>
 			<value>admin</value>
+			<value>{properties: 'key;expireOn;revoke;createdAt'}</value>
 		</row>
 		<row>
 			<value>stores</value>
@@ -58,20 +53,6 @@
 			<value>User</value>
 			<value>USER</value>
 			<value>user</value>
-		</row>
-	</table>
-	<table name="GRAVITEE_POLICY_CONFIGURATION">
-		<column>policy</column>
-		<column>api</column>
-		<column>configuration</column>
-		<row>
-			<value>cors</value>
-			<value>teams</value>
-			<value>{plugins: 'jar1.jar; jar2.jar'}</value>
-		</row>
-		<row>
-			<value>apiKey</value>
-			<value>teams</value>
 			<value>{properties: 'key;expireOn;revoke;createdAt'}</value>
 		</row>
 	</table>
