@@ -44,9 +44,7 @@ public class ApiJpa {
 
     private String description;
 
-    private String publicURI;
-    
-    private String targetURI;
+    private String definition;
 
     private Date createdAt;
     
@@ -66,8 +64,6 @@ public class ApiJpa {
 
     @OneToMany(mappedBy="api", cascade = CascadeType.ALL)
     private Set<ApiApplicationJpa> applications;
-
-    private String jsonDescriptor;
 
     public Date getCreatedAt() {
         return createdAt;
@@ -93,20 +89,12 @@ public class ApiJpa {
         this.name = name;
     }
 
-    public String getPublicURI() {
-        return publicURI;
+    public String getDefinition() {
+        return definition;
     }
 
-    public void setPublicURI(String publicURI) {
-        this.publicURI = publicURI;
-    }
-
-    public String getTargetURI() {
-        return targetURI;
-    }
-
-    public void setTargetURI(String targetURI) {
-        this.targetURI = targetURI;
+    public void setDefinition(String definition) {
+        this.definition = definition;
     }
 
     public Date getUpdatedAt() {
@@ -181,14 +169,6 @@ public class ApiJpa {
         this.applications = applications;
     }
 
-    public String getJsonDescriptor() {
-        return jsonDescriptor;
-    }
-
-    public void setJsonDescriptor(String jsonDescriptor) {
-        this.jsonDescriptor = jsonDescriptor;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -208,8 +188,7 @@ public class ApiJpa {
             "name='" + name + '\'' +
             ", description='" + description + '\'' +
             ", version='" + version + '\'' +
-            ", publicURI=" + publicURI +
-            ", targetURI=" + targetURI +
+            ", definition=" + definition +
             ", createdAt=" + createdAt +
             ", updatedAt=" + updatedAt +
             ", ownerType=" + ownerType +
@@ -217,7 +196,7 @@ public class ApiJpa {
             ", creator='" + creator + '\'' +
             ", privateApi=" + privateApi +
             ", lifecycleState=" + lifecycleState +
-            ", jsonDescriptor=" + jsonDescriptor +
+            ", definition=" + definition +
             '}';
     }
 }

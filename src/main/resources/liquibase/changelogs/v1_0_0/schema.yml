@@ -77,7 +77,7 @@ databaseChangeLog:
                   name: version
                   type: varchar(50)
               - column:
-                  name: jsondescriptor
+                  name: definition
                   type: text
               - column:
                   name: creator
@@ -94,12 +94,6 @@ databaseChangeLog:
               - column:
                   name: privateapi
                   type: boolean
-              - column:
-                  name: publicuri
-                  type: varchar(50)
-              - column:
-                  name: targeturi
-                  type: varchar(50)
               - column:
                   name: createdat
                   type: datetime

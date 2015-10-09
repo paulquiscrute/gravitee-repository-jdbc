@@ -33,7 +33,6 @@ import io.gravitee.repository.jpa.converter.ApiJpaConverter;
 import io.gravitee.repository.jpa.internal.InternalJpaApiApplicationRepository;
 import io.gravitee.repository.jpa.internal.InternalJpaApiRepository;
 import io.gravitee.repository.jpa.model.ApiApplicationJpa;
-import io.gravitee.repository.jpa.model.ApiJpa;
 import io.gravitee.repository.model.management.Api;
 import io.gravitee.repository.model.management.OwnerType;
 
@@ -121,17 +120,6 @@ public class JpaApiRepository implements ApiRepository {
 		} else {
 			return internalJpaApiRepository.countByOwnerAndOwnerType(name, ownerType);
 		}
-	}
-
-	public void updateDescriptor(String apiName, String jsonDescriptor) throws TechnicalException {
-		final ApiJpa api = internalJpaApiRepository.findOne(apiName);
-		api.setJsonDescriptor(jsonDescriptor);
-		internalJpaApiRepository.save(api);
-	}
-
-	public String findDescriptorByApi(String apiName) throws TechnicalException {
-		final ApiJpa api = internalJpaApiRepository.findOne(apiName);
-		return api.getJsonDescriptor();
 	}
 
 	public Set<Api> findByCreator(String userName) throws TechnicalException {

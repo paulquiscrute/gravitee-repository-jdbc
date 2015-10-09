@@ -14,7 +14,7 @@
 		<column>owner</column>
 		<column>ownerType</column>
 		<column>creator</column>
-		<column>jsonDescriptor</column>
+		<column>definition</column>
 		<row>
 			<value>teams</value>
 			<value>Manage teams</value>

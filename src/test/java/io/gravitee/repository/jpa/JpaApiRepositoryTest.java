@@ -162,18 +162,6 @@ public class JpaApiRepositoryTest extends AbstractJpaRepositoryTest {
     }
 
     @Test
-    public void shouldUpdatePolicyConfiguration() throws TechnicalException {
-        apiRepository.updateDescriptor("teams", "{ 'update:'cors' }");
-    }
-
-    @Test
-    public void shouldFindPoliciesByApi() throws TechnicalException {
-        final String jsonDescriptor = apiRepository.findDescriptorByApi("teams");
-        assertNotNull(jsonDescriptor);
-        assertEquals("{plugins: 'jar1.jar; jar2.jar'}", jsonDescriptor);
-    }
-
-    @Test
     public void shouldFindByCreator() throws TechnicalException {
         final Set<Api> apis = apiRepository.findByCreator("admin");
         assertNotNull(apis);
