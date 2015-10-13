@@ -15,12 +15,11 @@
  */
 package io.gravitee.repository.jpa.converter;
 
-import static org.springframework.beans.BeanUtils.copyProperties;
-
+import io.gravitee.repository.jpa.model.TeamJpa;
+import io.gravitee.repository.management.model.Team;
 import org.springframework.stereotype.Component;
 
-import io.gravitee.repository.jpa.model.TeamJpa;
-import io.gravitee.repository.model.management.Team;
+import static org.springframework.beans.BeanUtils.copyProperties;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)

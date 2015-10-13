@@ -15,24 +15,22 @@
  */
 package io.gravitee.repository.jpa;
 
-import static java.lang.String.format;
-
-import java.util.Optional;
-import java.util.Set;
-
-import javax.inject.Inject;
-
-import org.springframework.stereotype.Repository;
-
-import io.gravitee.repository.api.management.ApplicationRepository;
 import io.gravitee.repository.exceptions.TechnicalException;
 import io.gravitee.repository.jpa.converter.ApplicationJpaConverter;
 import io.gravitee.repository.jpa.internal.InternalJpaApplicationRepository;
 import io.gravitee.repository.jpa.internal.InternalJpaTeamRepository;
 import io.gravitee.repository.jpa.internal.InternalJpaUserRepository;
 import io.gravitee.repository.jpa.model.ApplicationJpa;
-import io.gravitee.repository.model.management.Application;
-import io.gravitee.repository.model.management.OwnerType;
+import io.gravitee.repository.management.api.ApplicationRepository;
+import io.gravitee.repository.management.model.Application;
+import io.gravitee.repository.management.model.OwnerType;
+import org.springframework.stereotype.Repository;
+
+import javax.inject.Inject;
+import java.util.Optional;
+import java.util.Set;
+
+import static java.lang.String.format;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)

@@ -15,13 +15,12 @@
  */
 package io.gravitee.repository.jpa.converter;
 
-import static org.springframework.beans.BeanUtils.copyProperties;
-
+import io.gravitee.repository.jpa.model.PageJpa;
+import io.gravitee.repository.management.model.Page;
+import io.gravitee.repository.management.model.PageType;
 import org.springframework.stereotype.Component;
 
-import io.gravitee.repository.jpa.model.PageJpa;
-import io.gravitee.repository.model.management.Page;
-import io.gravitee.repository.model.management.PageType;
+import static org.springframework.beans.BeanUtils.copyProperties;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)

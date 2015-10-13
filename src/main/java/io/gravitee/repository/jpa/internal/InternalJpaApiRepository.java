@@ -15,14 +15,13 @@
  */
 package io.gravitee.repository.jpa.internal;
 
-import java.util.List;
-import java.util.Set;
-
+import io.gravitee.repository.jpa.model.ApiJpa;
+import io.gravitee.repository.management.model.Api;
+import io.gravitee.repository.management.model.OwnerType;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import io.gravitee.repository.jpa.model.ApiJpa;
-import io.gravitee.repository.model.management.Api;
-import io.gravitee.repository.model.management.OwnerType;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)

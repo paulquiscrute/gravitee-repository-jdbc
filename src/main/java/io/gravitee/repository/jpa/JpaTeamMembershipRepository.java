@@ -15,16 +15,6 @@
  */
 package io.gravitee.repository.jpa;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-
-import javax.inject.Inject;
-
-import org.springframework.stereotype.Repository;
-
-import io.gravitee.repository.api.management.TeamMembershipRepository;
 import io.gravitee.repository.exceptions.TechnicalException;
 import io.gravitee.repository.jpa.converter.TeamJpaConverter;
 import io.gravitee.repository.jpa.converter.TeamMemberJpaConverter;
@@ -33,9 +23,17 @@ import io.gravitee.repository.jpa.internal.InternalJpaTeamRepository;
 import io.gravitee.repository.jpa.internal.InternalJpaUserRepository;
 import io.gravitee.repository.jpa.model.TeamJpa;
 import io.gravitee.repository.jpa.model.TeamMemberJpa;
-import io.gravitee.repository.model.management.Member;
-import io.gravitee.repository.model.management.Team;
-import io.gravitee.repository.model.management.TeamRole;
+import io.gravitee.repository.management.api.TeamMembershipRepository;
+import io.gravitee.repository.management.model.Member;
+import io.gravitee.repository.management.model.Team;
+import io.gravitee.repository.management.model.TeamRole;
+import org.springframework.stereotype.Repository;
+
+import javax.inject.Inject;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)

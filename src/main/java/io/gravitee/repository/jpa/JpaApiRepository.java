@@ -15,26 +15,24 @@
  */
 package io.gravitee.repository.jpa;
 
-import static java.lang.String.format;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
-
-import javax.inject.Inject;
-
-import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.stereotype.Repository;
-
-import io.gravitee.repository.api.management.ApiRepository;
 import io.gravitee.repository.exceptions.TechnicalException;
 import io.gravitee.repository.jpa.converter.ApiJpaConverter;
 import io.gravitee.repository.jpa.internal.InternalJpaApiApplicationRepository;
 import io.gravitee.repository.jpa.internal.InternalJpaApiRepository;
 import io.gravitee.repository.jpa.model.ApiApplicationJpa;
-import io.gravitee.repository.model.management.Api;
-import io.gravitee.repository.model.management.OwnerType;
+import io.gravitee.repository.management.api.ApiRepository;
+import io.gravitee.repository.management.model.Api;
+import io.gravitee.repository.management.model.OwnerType;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.stereotype.Repository;
+
+import javax.inject.Inject;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import static java.lang.String.format;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)

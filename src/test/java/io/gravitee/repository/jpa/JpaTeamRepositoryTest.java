@@ -15,19 +15,17 @@
  */
 package io.gravitee.repository.jpa;
 
-import java.util.Date;
-import java.util.Optional;
-import java.util.Set;
-
-import javax.inject.Inject;
-
+import io.gravitee.repository.exceptions.TechnicalException;
+import io.gravitee.repository.jpa.config.AbstractJpaRepositoryTest;
+import io.gravitee.repository.management.api.TeamRepository;
+import io.gravitee.repository.management.model.Team;
 import org.junit.Assert;
 import org.junit.Test;
 
-import io.gravitee.repository.api.management.TeamRepository;
-import io.gravitee.repository.exceptions.TechnicalException;
-import io.gravitee.repository.jpa.config.AbstractJpaRepositoryTest;
-import io.gravitee.repository.model.management.Team;
+import javax.inject.Inject;
+import java.util.Date;
+import java.util.Optional;
+import java.util.Set;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)

@@ -15,20 +15,13 @@
  */
 package io.gravitee.repository.jpa.model;
 
+import io.gravitee.repository.management.model.LifecycleState;
+import io.gravitee.repository.management.model.OwnerType;
+
+import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 import java.util.Set;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-import io.gravitee.repository.model.management.LifecycleState;
-import io.gravitee.repository.model.management.OwnerType;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
@@ -188,7 +181,6 @@ public class ApiJpa {
             "name='" + name + '\'' +
             ", description='" + description + '\'' +
             ", version='" + version + '\'' +
-            ", definition=" + definition +
             ", createdAt=" + createdAt +
             ", updatedAt=" + updatedAt +
             ", ownerType=" + ownerType +
@@ -196,7 +188,6 @@ public class ApiJpa {
             ", creator='" + creator + '\'' +
             ", privateApi=" + privateApi +
             ", lifecycleState=" + lifecycleState +
-            ", definition=" + definition +
             '}';
     }
 }

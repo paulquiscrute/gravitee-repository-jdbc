@@ -15,21 +15,19 @@
  */
 package io.gravitee.repository.jpa;
 
-import static org.junit.Assert.*;
+import io.gravitee.repository.exceptions.TechnicalException;
+import io.gravitee.repository.jpa.config.AbstractJpaRepositoryTest;
+import io.gravitee.repository.management.api.ApiKeyRepository;
+import io.gravitee.repository.management.model.ApiKey;
+import org.junit.Test;
 
+import javax.inject.Inject;
 import java.util.Date;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 
-import javax.inject.Inject;
-
-import org.junit.Test;
-
-import io.gravitee.repository.api.management.ApiKeyRepository;
-import io.gravitee.repository.exceptions.TechnicalException;
-import io.gravitee.repository.jpa.config.AbstractJpaRepositoryTest;
-import io.gravitee.repository.model.management.ApiKey;
+import static org.junit.Assert.*;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)

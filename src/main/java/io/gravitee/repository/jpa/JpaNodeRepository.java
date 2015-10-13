@@ -15,20 +15,18 @@
  */
 package io.gravitee.repository.jpa;
 
-import java.util.Date;
-import java.util.Set;
-
-import javax.inject.Inject;
-
-import org.springframework.stereotype.Repository;
-
-import io.gravitee.repository.api.management.NodeRepository;
 import io.gravitee.repository.exceptions.TechnicalException;
 import io.gravitee.repository.jpa.converter.NodeJpaConverter;
 import io.gravitee.repository.jpa.internal.InternalJpaNodeRepository;
 import io.gravitee.repository.jpa.model.NodeJpa;
-import io.gravitee.repository.model.management.Node;
-import io.gravitee.repository.model.management.NodeState;
+import io.gravitee.repository.management.api.NodeRepository;
+import io.gravitee.repository.management.model.Node;
+import io.gravitee.repository.management.model.NodeState;
+import org.springframework.stereotype.Repository;
+
+import javax.inject.Inject;
+import java.util.Date;
+import java.util.Set;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)

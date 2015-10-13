@@ -15,19 +15,17 @@
  */
 package io.gravitee.repository.jpa.converter;
 
-import static org.springframework.beans.BeanUtils.copyProperties;
-
-import java.util.List;
-import java.util.stream.Collectors;
-
-import javax.inject.Inject;
-
-import org.springframework.stereotype.Component;
-
 import io.gravitee.repository.jpa.internal.InternalJpaRoleRepository;
 import io.gravitee.repository.jpa.model.RoleJpa;
 import io.gravitee.repository.jpa.model.UserJpa;
-import io.gravitee.repository.model.management.User;
+import io.gravitee.repository.management.model.User;
+import org.springframework.stereotype.Component;
+
+import javax.inject.Inject;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static org.springframework.beans.BeanUtils.copyProperties;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)

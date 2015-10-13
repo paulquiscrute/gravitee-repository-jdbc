@@ -15,17 +15,16 @@
  */
 package io.gravitee.repository.jpa;
 
-import static org.junit.Assert.*;
+import io.gravitee.repository.exceptions.TechnicalException;
+import io.gravitee.repository.jpa.config.AbstractJpaRepositoryTest;
+import io.gravitee.repository.management.api.PageRepository;
+import io.gravitee.repository.management.model.Page;
+import io.gravitee.repository.management.model.PageType;
+import org.junit.Test;
 
 import javax.inject.Inject;
 
-import org.junit.Test;
-
-import io.gravitee.repository.api.management.PageRepository;
-import io.gravitee.repository.exceptions.TechnicalException;
-import io.gravitee.repository.jpa.config.AbstractJpaRepositoryTest;
-import io.gravitee.repository.model.management.Page;
-import io.gravitee.repository.model.management.PageType;
+import static org.junit.Assert.*;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
