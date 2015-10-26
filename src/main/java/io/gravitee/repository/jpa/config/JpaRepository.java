@@ -25,7 +25,7 @@ public class JpaRepository implements Repository {
 
     @Override
     public String type() {
-        return "jpa";
+        return "jdbc";
     }
 
     @Override

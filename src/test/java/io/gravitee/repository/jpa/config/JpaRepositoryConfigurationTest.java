@@ -17,11 +17,13 @@ package io.gravitee.repository.jpa.config;
 
 import java.util.Properties;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
@@ -32,7 +34,10 @@ public class JpaRepositoryConfigurationTest {
     @Bean
     public static PropertySourcesPlaceholderConfigurer graviteePropertyPlaceholderConfigurer() {
         final PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer = new PropertySourcesPlaceholderConfigurer();
+
         propertySourcesPlaceholderConfigurer.setProperties(graviteeProperties());
+        propertySourcesPlaceholderConfigurer.setIgnoreUnresolvablePlaceholders(true);
+
         return propertySourcesPlaceholderConfigurer;
     }
 
@@ -42,5 +47,11 @@ public class JpaRepositoryConfigurationTest {
         final Resource yamlResource = new ClassPathResource("gravitee.yml");
         yaml.setResources(yamlResource);
         return yaml.getObject();
+    }
+
+    @Bean
+    public static PropertySourceBeanProcessor propertySourceBeanProcessor(Environment environment) {
+        // Using this we are now able to use {@link org.springframework.core.env.Environment} in Spring beans
+        return new PropertySourceBeanProcessor(graviteeProperties(), environment);
     }
 }

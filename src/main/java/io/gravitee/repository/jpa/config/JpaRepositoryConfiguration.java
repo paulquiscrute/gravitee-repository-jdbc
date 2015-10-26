@@ -15,22 +15,20 @@
  */
 package io.gravitee.repository.jpa.config;
 
-import java.util.Properties;
-
-import javax.sql.DataSource;
-
+import io.gravitee.repository.Scope;
+import liquibase.integration.spring.SpringLiquibase;
 import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.support.AbstractPlatformTransactionManager;
 
-import liquibase.integration.spring.SpringLiquibase;
+import javax.sql.DataSource;
+import java.util.Properties;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
@@ -60,19 +58,14 @@ public class JpaRepositoryConfiguration {
 
 
     @Bean
-    public DataSource graviteeDataSource() {
-        final DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(driverClassName);
-        dataSource.setUrl(url);
-        dataSource.setUsername(username);
-        dataSource.setPassword(password);
-        return dataSource;
+    public DataSourceFactory dataSourceFactory() {
+        return new DataSourceFactory(Scope.MANAGEMENT.getName());
     }
 
     @Bean
-    public LocalContainerEntityManagerFactoryBean graviteeEntityManagerFactory() {
+    public LocalContainerEntityManagerFactoryBean graviteeEntityManagerFactory(DataSource dataSource) {
         final Properties hibernateProperties = new Properties();
-        hibernateProperties.put("hibernate.dialect", hibernateDialect);
+//        hibernateProperties.put("hibernate.dialect", hibernateDialect);
         hibernateProperties.put("hibernate.show_sql", showSql);
 
         final LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
@@ -80,21 +73,22 @@ public class JpaRepositoryConfiguration {
         entityManagerFactoryBean.setJpaProperties(hibernateProperties);
         entityManagerFactoryBean.setPersistenceProvider(new HibernatePersistenceProvider());
         entityManagerFactoryBean.setPersistenceUnitName("graviteePU");
-        entityManagerFactoryBean.setDataSource(graviteeDataSource());
+        entityManagerFactoryBean.setDataSource(dataSource);
         return entityManagerFactoryBean;
     }
 
     @Bean
-    public AbstractPlatformTransactionManager graviteeTransactionManager() {
+    public AbstractPlatformTransactionManager graviteeTransactionManager(
+            LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean) {
         final JpaTransactionManager transactionManager = new JpaTransactionManager();
-        transactionManager.setEntityManagerFactory(graviteeEntityManagerFactory().getObject());
+        transactionManager.setEntityManagerFactory(localContainerEntityManagerFactoryBean.getObject());
         return transactionManager;
     }
 
     @Bean
-    public SpringLiquibase liquibase() {
+    public SpringLiquibase liquibase(DataSource dataSource) {
         final SpringLiquibase liquibase = new SpringLiquibase();
-        liquibase.setDataSource(graviteeDataSource());
+        liquibase.setDataSource(dataSource);
         liquibase.setChangeLog("classpath:liquibase/master.yml");
         return liquibase;
     }

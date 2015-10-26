@@ -1,6 +1,6 @@
 management:
-  jpa:
-    hibernateDialect: org.hibernate.dialect.HSQLDialect
-    driverClassName: org.hsqldb.jdbc.JDBCDriver
-    url: jdbc:hsqldb:mem:gravitee
+  jdbc:
+    dataSourceClassName: org.hsqldb.jdbc.JDBCDataSource
+    properties:
+      url: jdbc:hsqldb:mem:gravitee
     showSql: true
