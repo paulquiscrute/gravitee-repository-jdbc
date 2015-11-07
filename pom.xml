@@ -33,7 +33,7 @@
 
 	<properties>
 		<dbunit.version>2.5.0</dbunit.version>
-		<gravitee-repository.version>0.2.0</gravitee-repository.version>
+		<gravitee-repository.version>0.3.0-SNAPSHOT</gravitee-repository.version>
 		<hibernate.version>4.3.8.Final</hibernate.version>
 		<hsqldb.version>2.3.2</hsqldb.version>
 		<javax.inject.version>1</javax.inject.version>
@@ -47,6 +47,13 @@
 	</properties>
 
 	<dependencies>
+		<!-- Gravitee dependencies -->
+		<dependency>
+			<groupId>io.gravitee.repository</groupId>
+			<artifactId>gravitee-repository</artifactId>
+			<version>${gravitee-repository.version}</version>
+			<scope>provided</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>javax.inject</groupId>
@@ -65,14 +72,6 @@
 			<artifactId>snakeyaml</artifactId>
 			<version>${snakeyaml.version}</version>
 			<scope>test</scope>
-		</dependency>
-
-		<!-- Gravitee dependencies -->
-
-		<dependency>
-			<groupId>io.gravitee.repository</groupId>
-			<artifactId>gravitee-repository</artifactId>
-			<version>${gravitee-repository.version}</version>
 		</dependency>
 
 		<!-- Spring dependencies -->
