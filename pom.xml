@@ -27,9 +27,9 @@
 	</parent>
 
 	<groupId>io.gravitee.repository</groupId>
-	<artifactId>gravitee-repository-jpa</artifactId>
+	<artifactId>gravitee-repository-jdbc</artifactId>
 	<version>0.3.0-SNAPSHOT</version>
-	<name>Gravitee IO - API Management - Repository JPA</name>
+	<name>Gravitee IO - API Management - Repository JDBC</name>
 
 	<properties>
 		<dbunit.version>2.5.0</dbunit.version>
