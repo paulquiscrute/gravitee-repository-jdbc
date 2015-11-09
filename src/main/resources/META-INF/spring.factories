@@ -1,2 +1,2 @@
 io.gravitee.repository.Repository=\
-io.gravitee.repository.jpa.config.JpaRepository
+io.gravitee.repository.jdbc$.config.JdbcRepository
