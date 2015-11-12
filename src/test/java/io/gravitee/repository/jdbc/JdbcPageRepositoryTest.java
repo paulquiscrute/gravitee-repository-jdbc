@@ -72,7 +72,7 @@ public class JdbcPageRepositoryTest extends AbstractJdbcRepositoryTest {
 
     @Test
     public void shouldFindByApiName() throws TechnicalException {
-        assertEquals(2, pageRepository.findByApiName("tests").size());
+        assertEquals(2, pageRepository.findByApi("tests").size());
     }
 
     @Test

@@ -15,18 +15,19 @@
  */
 package io.gravitee.repository.jdbc;
 
+import static java.lang.String.format;
 import io.gravitee.repository.exceptions.TechnicalException;
 import io.gravitee.repository.jdbc.converter.PageJpaConverter;
 import io.gravitee.repository.jdbc.internal.InternalJpaPageRepository;
 import io.gravitee.repository.management.api.PageRepository;
 import io.gravitee.repository.management.model.Page;
-import org.springframework.stereotype.Repository;
+
+import java.util.Collection;
+import java.util.Optional;
 
 import javax.inject.Inject;
-import java.util.Optional;
-import java.util.Set;
 
-import static java.lang.String.format;
+import org.springframework.stereotype.Repository;
 
 /**
  * @author Azize Elamrani (azize dot elamrani at gmail dot com)
@@ -40,7 +41,7 @@ public class JdbcPageRepository implements PageRepository {
     @Inject
     private PageJpaConverter pageJpaConverter;
 
-    public Set<Page> findByApiName(String apiName) throws TechnicalException {
+    public Collection<Page> findByApi(String apiName) throws TechnicalException {
         return pageJpaConverter.convertAllTo(internalJpaPageRepository.findByApiName(apiName));
     }
 
@@ -75,4 +76,10 @@ public class JdbcPageRepository implements PageRepository {
     public Integer findMaxPageOrderByApiName(String apiName) throws TechnicalException {
         return internalJpaPageRepository.findMaxOrderByApiName(apiName);
     }
+
+	@Override
+	public Collection<Page> findPublishedByApi(String apiName) throws TechnicalException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
