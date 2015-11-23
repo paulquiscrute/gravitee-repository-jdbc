@@ -1,8 +1,8 @@
-[![Build Status](http://build.gravitee.io/jenkins/buildStatus/icon?job=gravitee-repository-jpa)](http://build.gravitee.io/jenkins/job/gravitee-repository-jpa)
+[![Build Status](http://build.gravitee.io/jenkins/buildStatus/icon?job=gravitee-repository-jdbc)](http://build.gravitee.io/jenkins/job/gravitee-repository-jdbc)
 
-# Gravitee JPA Repository
+# Gravitee JDBC Repository
 
-JPA repository based on Hibernate implementation
+JDBC repository based on Hibernate implementation
 
 ## Requirement
 
@@ -18,7 +18,7 @@ https://oss.sonatype.org/content/repositories/snapshots
 ## Building
 
 ```
-$ git clone https://github.com/gravitee-io/gravitee-repository-jpa.git
-$ cd gravitee-repository-jpa
+$ git clone https://github.com/gravitee-io/gravitee-repository-jdbc.git
+$ cd gravitee-repository-jdbc
 $ mvn clean package
 ```
