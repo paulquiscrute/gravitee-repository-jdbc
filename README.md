@@ -1,4 +1,4 @@
-[![Build Status](http://build.gravitee.io/jenkins/buildStatus/icon?job=gravitee-repository-jdbc)](http://build.gravitee.io/jenkins/job/gravitee-repository-jdbc)
+[![Build Status](https://ci.gravitee.io/buildStatus/icon?job=gravitee-io/gravitee-repository-jdbc/master)](https://ci.gravitee.io/job/gravitee-io/job/gravitee-repository-jdbc/job/master)
 
 # Gravitee JDBC Repository
 
